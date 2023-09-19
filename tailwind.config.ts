@@ -16,9 +16,11 @@ const config: Config = {
       colors: {
         'primary-color': "#2196f3",
         'secondry-color': "#1787e0",
+        'dark-container': '#202020'
       },
     },
   },
+  darkMode: 'class',
   plugins: [],
 }
 export default config
