@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.nav-link {
+  @apply flex flex-col gap-1 justify-center items-center hover:bg-gray-200 p-2 rounded-full
+}
+
+.nav-icon {
+  @apply text-primary-color w-[28px] h-[28px] 
+}
