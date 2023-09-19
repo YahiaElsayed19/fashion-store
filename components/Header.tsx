@@ -10,7 +10,7 @@ const Header = () => {
                     <div className="logo flex gap-2 items-center">
                         <Link href="/" className='flex gap-2 items-center'>
                             <Image src="/assets/logo.svg" width={42} height={42} alt='logo' />
-                            <h1 className='hidden sm:block font-extrabold font text-2xl'>Y Store</h1>
+                            <h1 className='hidden sm:block font-extrabold font text-2xl'>Y-Store</h1>
                         </Link>
                     </div>
                     <Navigation />
