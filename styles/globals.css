@@ -9,9 +9,8 @@
 }
 
 .nav-link {
-  @apply flex flex-col gap-1 justify-center items-center hover:bg-gray-200 p-2 rounded-full
+  @apply flex flex-col gap-1 justify-center items-center hover:text-primary-color hover:bg-gray-100 p-2 rounded-full dark:text-white dark:hover:bg-dark-container
 }
-
-.nav-icon {
-  @apply text-primary-color w-[28px] h-[28px] 
+.input{
+  @apply w-full bg-gray-200 ps-5 pr-14 py-3 rounded-2xl focus:outline-none dark:bg-dark-container dark:text-white
 }
