@@ -1,8 +1,24 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "./Navigation";
 import Searchbar from "./Searchbar";
+import { setCookie, getCookie, deleteCookie } from "cookies-next";
+import { useState, useEffect } from "react";
 const Header = () => {
+    let darkCookie = getCookie("dark");
+    const [dark, setDark] = useState(darkCookie || false);
+    useEffect(() => {
+        if (dark) {
+            document.body.classList.add("dark");
+            setCookie("dark", true)
+        }
+        if (!dark) {
+            document.body.classList.remove("dark");
+            deleteCookie("dark")
+        }
+    }, [dark]);
+
     return (
         <header className="bg-white dark:bg-black shadow">
             <div className="container mx-auto max-w-5xl flex flex-1 flex-col gap-2 px-[15px] py-4">
