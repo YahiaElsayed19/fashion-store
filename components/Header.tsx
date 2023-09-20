@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <header className="bg-white dark:bg-black shadow">
             <div className="container mx-auto max-w-5xl flex flex-1 flex-col gap-2 px-[15px] py-4">
-                <div className="flex flex-1 items-center justify-center sm:justify-between gap-1 flex-col sm:flex-row">
+                <div className="flex flex-1 items-center justify-center sm:justify-between gap-2 flex-col sm:flex-row">
                     <div className="logo flex gap-2 items-center">
                         <Link href="/" className="flex items-center">
                             <Image
