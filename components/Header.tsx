@@ -4,7 +4,7 @@ import Navigation from "./Navigation";
 import Searchbar from "./Searchbar";
 const Header = () => {
     return (
-        <header className="shadow fixed top-0 left-0 w-full z-[1000] bg-white dark:bg-black">
+        <header className="bg-white dark:bg-black shadow">
             <div className="container mx-auto max-w-5xl flex flex-1 flex-col gap-1 px-[15px] py-4">
                 <div className="flex flex-1 justify-center">
                     <div className="logo flex gap-2 items-center">
