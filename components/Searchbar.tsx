@@ -2,7 +2,7 @@ import React from "react";
 import { RiSearchLine } from "react-icons/ri";
 const Searchbar = () => {
     return (
-        <form className="flex flex-col items-center justify-center relative w-full max-sm:hidden">
+        <form className="flex flex-col items-center justify-center relative w-full">
             <input
                 type="text"
                 placeholder="search"

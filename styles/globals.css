@@ -11,8 +11,9 @@
 .hover {
   @apply hover:bg-gray-100 p-2 rounded-full dark:hover:bg-dark-container
 }
+
 .active-link {
-  @apply text-primary-color bg-gray-100 p-2 rounded-full dark:bg-dark-container 
+  @apply text-primary-color bg-gray-100 p-2 rounded-full dark:bg-dark-container
 }
 
 .nav-link {
@@ -24,5 +25,5 @@
 }
 
 .auth-button {
-  @apply font-medium text-sm text-black bg-gray-200 dark:text-white dark:bg-dark-container py-1 px-2 sm:py-2 sm:px-3 rounded-full 
+  @apply font-medium text-sm text-black bg-gray-200 dark:text-white dark:bg-dark-container py-1 px-2 sm:py-2 sm:px-3 rounded-full
 }
