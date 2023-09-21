@@ -8,8 +8,8 @@ const Searchbar = () => {
                 placeholder="search"
                 className="input"
             />
-            <button className="absolute top-[50%] translate-y-[-50%] right-4 p-2">
-                {""}{" "}
+            <button name="search" className="absolute top-[50%] translate-y-[-50%] right-4 p-2" onClick={(e) => { e.preventDefault() }}>
+                {" "}
                 <RiSearchLine className=" text-black w-6 h-6 cursor-pointer dark:text-white" />
             </button>
         </form>
