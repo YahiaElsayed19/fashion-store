@@ -4,8 +4,8 @@ import Link from "next/link";
 import Navigation from "./Navigation";
 import Searchbar from "./Searchbar";
 import AuthButton from "./AuthButton";
-import { CgMenu } from 'react-icons/cg'
 import MobileNav from "./MobileNav";
+
 const Header = () => {
     return (
         <header className="bg-white dark:bg-black shadow flex h-[64px] sm:h-auto z-50">
