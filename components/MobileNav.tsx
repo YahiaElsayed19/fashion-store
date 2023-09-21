@@ -20,8 +20,9 @@ const MobileNav = () => {
     useEffect(() => {
         document.addEventListener('click', function clickOutside(event: Event) {
             let menu = document.getElementById('menu');
+            let searchbar = document.getElementById('Searchbar');
             //@ts-ignore
-            if (menu && !menu.contains(event.target)) {
+            if (menu && !menu.contains(event.target) && searchbar && !searchbar.contains(event.target)) {
                 closeMenuHandler()
             }
         })
@@ -53,7 +54,7 @@ const MobileNav = () => {
                             </Link>
                         ))}
                     </nav>
-                    <div>
+                    <div id="Searchbar">
                         <Searchbar />
                     </div>
                 </motion.div>
