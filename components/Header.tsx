@@ -16,7 +16,7 @@ const Header = () => {
             const currentScrollY = window.scrollY;
             if (header) {
                 if (currentScrollY > prevScrollY) {
-                    header.style.transform = 'translateY(-100%)';
+                    header.style.transform = 'translateY(-1000%)';
                 } else {
                     header.style.transform = 'translateY(0)';
                 }
