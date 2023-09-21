@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Navigation = () => {
     return (
-        <nav className='flex gap-3 items-center'>
+        <nav className='flex gap-3 items-center max-sm:hidden'>
             <Link href="/favorite" className='nav-link'>
                 Favorites
             </Link>
