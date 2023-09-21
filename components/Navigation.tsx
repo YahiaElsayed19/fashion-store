@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { links } from '@util/links'
 const Navigation = () => {
-
+    const pathname = usePathname()
     return (
         <nav className='flex gap-3 items-center max-sm:hidden'>
-            {links.map((link) => <Link href={link.url} className='nav-link'>{link.title}</Link>)}
+            {links.map((link) => <Link href={link.url} className={pathname == link.url ? "active-link" : "nav-link"}>{link.title}</Link>)}
         </nav>)
 }
 

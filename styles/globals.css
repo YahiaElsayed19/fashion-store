@@ -11,7 +11,7 @@
 .hover {
   @apply hover:bg-gray-100 p-2 rounded-full dark:hover:bg-dark-container
 }
-.active {
+.active-link {
   @apply text-primary-color bg-gray-100 p-2 rounded-full dark:bg-dark-container 
 }
 
