@@ -8,7 +8,7 @@ import { CgMenu } from 'react-icons/cg'
 import MobileNav from "./MobileNav";
 const Header = () => {
     return (
-        <header className="bg-white dark:bg-black shadow flex h-[64px] sm:h-auto">
+        <header className="bg-white dark:bg-black shadow flex h-[64px] sm:h-auto z-50">
             <div className="container mx-auto max-w-5xl flex flex-1 flex-col sm:gap-2 px-[15px] py-4">
                 <div className="flex flex-1 items-center justify-between gap-2 flex-row">
                     <MobileNav />
