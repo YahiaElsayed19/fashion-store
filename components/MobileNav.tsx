@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { CgMenu } from "react-icons/cg";
 import { usePathname } from "next/navigation";
@@ -16,11 +16,23 @@ const MobileNav = () => {
         setShowMenu(false);
     };
     const pathname = usePathname();
+
+    useEffect(() => {
+        document.addEventListener('click', function clickOutside(event: Event) {
+            let menu = document.getElementById('menu');
+            //@ts-ignore
+            if (menu && !menu.contains(event.target)) {
+                closeMenuHandler()
+            }
+        })
+    }, [])
+
     return (
         <div className="sm:hidden z-40">
             <CgMenu
                 className="w-8 h-8 text-black dark:text-white sm:hidden cursor-pointer"
                 onClick={toggleMenuHandler}
+                id="menu"
             />
             {showMenu && (
                 <motion.div

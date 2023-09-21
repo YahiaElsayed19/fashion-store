@@ -8,10 +8,10 @@ import MobileNav from "./MobileNav";
 import { useEffect } from "react";
 
 const Header = () => {
+    
     useEffect(() => {
         const header = document.getElementById('header');
         let prevScrollY = 0;
-
         function handleScroll() {
             const currentScrollY = window.scrollY;
             if (header) {
@@ -20,12 +20,9 @@ const Header = () => {
                 } else {
                     header.style.transform = 'translateY(0)';
                 }
-
                 prevScrollY = currentScrollY;
             }
-
         }
-
         window.addEventListener('scroll', handleScroll);
     }, [])
     return (
