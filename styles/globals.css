@@ -11,6 +11,9 @@
 .hover {
   @apply hover:bg-gray-100 p-2 rounded-full dark:hover:bg-dark-container
 }
+.active {
+  @apply text-primary-color bg-gray-100 p-2 rounded-full dark:bg-dark-container 
+}
 
 .nav-link {
   @apply flex flex-col gap-1 justify-center items-center dark:text-white hover hover:text-primary-color
