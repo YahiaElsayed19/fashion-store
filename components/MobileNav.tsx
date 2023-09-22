@@ -18,14 +18,17 @@ const MobileNav = () => {
     const pathname = usePathname();
 
     useEffect(() => {
-        document.addEventListener('click', function clickOutside(event: Event) {
+        function clickOutside(event: Event) {
             let menu = document.getElementById('menu');
             let searchbar = document.getElementById('Searchbar');
             //@ts-ignore
             if (menu && !menu.contains(event.target) && searchbar && !searchbar.contains(event.target)) {
                 closeMenuHandler()
             }
-        })
+        }
+        document.addEventListener('click', clickOutside)
+
+        return () => { document.removeEventListener('click', clickOutside) }
     }, [])
 
     return (
