@@ -9,7 +9,7 @@ export const connectToDB = async () => {
     try {
         // @ts-ignore
         await mongoose.connect(process.env.MONGODB_URI, {
-            dbName: "fashionProject",
+            dbName: "eCommerceNextApp",
             useUnifiedTopology: true,
         });
         isConnected = true
