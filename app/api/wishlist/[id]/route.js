@@ -1,23 +1,24 @@
-import Cart from "@models/cart"
+import Wishlist from "@models/wishlist"
 import { connectToDB } from "@util/database"
 
 export const POST = async (req, { params }) => {
     const addedProduct = await req.json();
     try {
         await connectToDB()
-        let cart = await Cart.findOne({ owner: params.id })
-        if (!cart) {
-            await Cart.create({
+        let wishlist = await Wishlist.findOne({ owner: params.id })
+        if (!wishlist) {
+            await Wishlist.create({
                 owner: params.id,
-                cartItems: [addedProduct]
+                wishlistItems: [addedProduct]
             })
         }
-        if (cart) {
-            cart.cartItems.push(addedProduct)
-            await cart.save()
+        if (wishlist) {
+            wishlist.wishlistItems.push(addedProduct)
+            await wishlist.save()
         }
         return new Response("Successfully added!", { status: 200 })
     } catch (error) {
+        console.log(error);
         return new Response(JSON.stringify(error), { status: 500 })
     }
 }
