@@ -25,3 +25,20 @@ export const POST = async (req, { params }) => {
         return new Response(JSON.stringify(error), { status: 500 })
     }
 }
+
+export const GET = async (req, { params }) => {
+    try {
+        await connectToDB()
+        let cart = await Cart.findOne({ owner: params.id })
+        if (!cart) {
+            await cart.create({
+                owner: params.id,
+                cartItems: []
+            })
+        }
+        return new Response(JSON.stringify(cart), { status: 200 })
+    } catch (error) {
+        console.log(error);
+        return new Response(JSON.stringify(error), { status: 500 })
+    }
+}

@@ -26,3 +26,20 @@ export const POST = async (req, { params }) => {
         return new Response(JSON.stringify(error), { status: 500 })
     }
 }
+
+export const GET = async (req, { params }) => {
+    try {
+        await connectToDB()
+        let wishlist = await Wishlist.findOne({ owner: params.id })
+        if (!wishlist) {
+            await Wishlist.create({
+                owner: params.id,
+                wishlistItems: []
+            })
+        }
+        return new Response(JSON.stringify(wishlist), { status: 200 })
+    } catch (error) {
+        console.log(error);
+        return new Response(JSON.stringify(error), { status: 500 })
+    }
+}
