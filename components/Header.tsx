@@ -20,6 +20,9 @@ const Header = () => {
             }
         }
         window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.addEventListener("scroll", handleScroll);
+        }
     }, []);
     return (
         <motion.header
