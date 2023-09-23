@@ -5,10 +5,10 @@ import { connectToDB } from "@util/database"
 export const GET = async (req, { params }) => {
     try {
         await connectToDB()
-        let cart = await Cart.findOne({ owner: params.id })
+        let cart = await Cart.findOne({ owner: params.userId })
         if (!cart) {
             let newCart = await Cart.create({
-                owner: params.id,
+                owner: params.userId,
                 cartItems: []
             })
             return new Response(JSON.stringify(newCart), { status: 200 })
@@ -22,15 +22,15 @@ export const GET = async (req, { params }) => {
 
 export const POST = async (req, { params }) => {
     const url = new URL(req.url)
-    let id = url.searchParams.get('id')
+    let productId = url.searchParams.get('product-id')
 
     try {
         await connectToDB()
-        let product = await Product.findOne({ _id: id })
-        let cart = await Cart.findOne({ owner: params.id })
+        let product = await Product.findOne({ _id: productId })
+        let cart = await Cart.findOne({ owner: params.userId })
         if (!cart) {
             await Cart.create({
-                owner: params.id,
+                owner: params.userId,
                 cartItems: [{ ...product._doc, count: 1 }]
             })
         }
@@ -53,12 +53,12 @@ export const POST = async (req, { params }) => {
 
 export const PATCH = async (req, { params }) => {
     const url = new URL(req.url)
-    let id = url.searchParams.get('id')
+    let productId = url.searchParams.get('product-id')
 
     try {
         await connectToDB()
-        let product = await Product.findOne({ _id: id })
-        let cart = await Cart.findOne({ owner: params.id })
+        let product = await Product.findOne({ _id: productId })
+        let cart = await Cart.findOne({ owner: params.userId })
         const productIndex = cart.cartItems.findIndex((item) => item._id.toString() === product._id.toString());
         if (productIndex !== -1) {
             const existedProduct = cart.cartItems[productIndex]
@@ -82,7 +82,7 @@ export const PATCH = async (req, { params }) => {
 export const DELETE = async (req, { params }) => {
     try {
         await connectToDB()
-        await Cart.findOneAndRemove({ owner: params.id })
+        await Cart.findOneAndRemove({ owner: params.userId })
         return new Response(JSON.stringify({ msg: "Successfully deleted cart!", success: true }), { status: 200 })
     } catch (error) {
         return new Response(JSON.stringify(error), { status: 500 })
