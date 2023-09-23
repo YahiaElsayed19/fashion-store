@@ -32,10 +32,11 @@ export const GET = async (req, { params }) => {
         await connectToDB()
         let wishlist = await Wishlist.findOne({ owner: params.id })
         if (!wishlist) {
-            await Wishlist.create({
+            let newWishlist = await Wishlist.create({
                 owner: params.id,
                 wishlistItems: []
             })
+            return new Response(JSON.stringify(newWishlist), { status: 200 })
         }
         return new Response(JSON.stringify(wishlist), { status: 200 })
     } catch (error) {
@@ -59,6 +60,16 @@ export const PATCH = async (req, { params }) => {
         } else {
             return new Response("Product was not found in wishlist!", { status: 404 })
         }
+    } catch (error) {
+        return new Response(JSON.stringify(error), { status: 500 })
+    }
+}
+
+export const DELETE = async (req, { params }) => {
+    try {
+        await connectToDB()
+        await Wishlist.findOneAndRemove({ owner: params.id })
+        return new Response(JSON.stringify({ msg: "Successfully deleted wishlist!", success: true }), { status: 200 })
     } catch (error) {
         return new Response(JSON.stringify(error), { status: 500 })
     }
