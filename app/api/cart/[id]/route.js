@@ -7,10 +7,11 @@ export const GET = async (req, { params }) => {
         await connectToDB()
         let cart = await Cart.findOne({ owner: params.id })
         if (!cart) {
-            await cart.create({
+            let newCart = await Cart.create({
                 owner: params.id,
                 cartItems: []
             })
+            return new Response(JSON.stringify(newCart), { status: 200 })
         }
         return new Response(JSON.stringify(cart), { status: 200 })
     } catch (error) {
@@ -64,14 +65,25 @@ export const PATCH = async (req, { params }) => {
             if (existedProduct.count > 1) {
                 existedProduct.count -= 1
                 cart.cartItems[productIndex] = existedProduct
+                cart.save()
             } else {
                 cart.cartItems.splice(productIndex, 1)
+                cart.save()
             }
-            cart.save()
             return new Response(JSON.stringify({ msg: "Successfully deleted from cart!", success: true }), { status: 200 })
         } else {
             return new Response("Product was not found in cart!", { status: 404 })
         }
+    } catch (error) {
+        return new Response(JSON.stringify(error), { status: 500 })
+    }
+}
+
+export const DELETE = async (req, { params }) => {
+    try {
+        await connectToDB()
+        await Cart.findOneAndRemove({ owner: params.id })
+        return new Response(JSON.stringify({ msg: "Successfully deleted cart!", success: true }), { status: 200 })
     } catch (error) {
         return new Response(JSON.stringify(error), { status: 500 })
     }
