@@ -20,7 +20,7 @@ export const POST = async (req, { params }) => {
             cart.cartItems.push(product)
             await cart.save()
         }
-        return new Response("Successfully added!", { status: 200 })
+        return new Response(JSON.stringify({ msg: "Successfully added to cart!", success: true }), { status: 200 })
     } catch (error) {
         return new Response(JSON.stringify(error), { status: 500 })
     }
@@ -55,9 +55,9 @@ export const PATCH = async (req, { params }) => {
         if (productIndex !== -1) {
             cart.cartItems.splice(productIndex, 1)
             cart.save()
-            return new Response("Successfully deleted!", { status: 200 })
+            return new Response(JSON.stringify({ msg: "Successfully deleted from cart!", success: true }), { status: 200 })
         } else {
-            return new Response("Product was not found in cart!", { status: 200 })
+            return new Response("Product was not found in cart!", { status: 404 })
         }
     } catch (error) {
         return new Response(JSON.stringify(error), { status: 500 })

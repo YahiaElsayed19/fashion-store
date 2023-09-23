@@ -20,7 +20,7 @@ export const POST = async (req, { params }) => {
             wishlist.wishlistItems.push(addedProduct)
             await wishlist.save()
         }
-        return new Response("Successfully added!", { status: 200 })
+        return new Response(JSON.stringify({ msg: "Successfully added to wishlist!", success: true }), { status: 200 })
     } catch (error) {
         console.log(error);
         return new Response(JSON.stringify(error), { status: 500 })
@@ -55,9 +55,9 @@ export const PATCH = async (req, { params }) => {
         if (productIndex !== -1) {
             wishlist.wishlistItems.splice(productIndex, 1)
             wishlist.save()
-            return new Response("Successfully deleted!", { status: 200 })
+            return new Response(JSON.stringify({ msg: "Successfully deleted from wishlist!", success: true }), { status: 200 })
         } else {
-            return new Response("Product was not found in wishlist!", { status: 200 })
+            return new Response("Product was not found in wishlist!", { status: 404 })
         }
     } catch (error) {
         return new Response(JSON.stringify(error), { status: 500 })
