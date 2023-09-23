@@ -8,7 +8,7 @@ import MobileNav from "./MobileNav";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 const Header = () => {
-    let [hideHeader, setHideHeader] = useState(false);
+    const [hideHeader, setHideHeader] = useState(false);
     useEffect(() => {
         const header = document.getElementById("header");
         let prevScrollY = 0;
