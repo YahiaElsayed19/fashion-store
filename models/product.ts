@@ -29,6 +29,10 @@ export const productSchema = new Schema({
         type: Array,
         required: [true, 'Images is required!'],
     },
+    count: {
+        type: Number,
+        required: [false],
+    }
 }
 )
 const Product = models.Product || model("Product", productSchema)
