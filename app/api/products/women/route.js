@@ -14,3 +14,5 @@ export const GET = async (req, { params }) => {
         return new Response(JSON.stringify(error), { status: 500 })
     }
 }
+
+// women 30 pages

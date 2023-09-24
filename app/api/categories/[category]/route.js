@@ -14,3 +14,8 @@ export const GET = async (req, { params }) => {
         return new Response(JSON.stringify(error), { status: 500 })
     }
 }
+
+// top 17 pages
+// trousers 15 pages
+// dress 10 pages
+// skirt 3 pages
