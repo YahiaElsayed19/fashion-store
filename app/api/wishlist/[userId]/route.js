@@ -26,17 +26,20 @@ export const POST = async (req, { params }) => {
 
     try {
         await connectToDB()
-        let addedProduct = await Product.findOne({ _id: productId })
+        let product = await Product.findOne({ _id: productId })
         let wishlist = await Wishlist.findOne({ owner: params.userId })
         if (!wishlist) {
             await Wishlist.create({
                 owner: params.userId,
-                wishlistItems: [addedProduct]
+                wishlistItems: [product]
             })
         }
         if (wishlist) {
-            wishlist.wishlistItems.push(addedProduct)
-            await wishlist.save()
+            const productIndex = wishlist.wishlistItems.findIndex((item) => item._id.toString() === product._id.toString());
+            if (productIndex === -1) {
+                wishlist.wishlistItems.push(product)
+                await wishlist.save()
+            }
         }
         return new Response(JSON.stringify({ msg: "Successfully added to wishlist!", success: true }), { status: 200 })
     } catch (error) {
