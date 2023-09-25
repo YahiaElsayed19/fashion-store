@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { CgMenu } from "react-icons/cg";
 import { usePathname } from "next/navigation";
-import { links } from "@util/links";
+import { navLinks } from "@util/links";
 import Searchbar from "./Searchbar";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -55,7 +55,7 @@ const MobileNav = () => {
                         className="flex flex-col w-full h-auto p-4 gap-2 absolute top-[64px] left-0  bg-white dark:bg-black"
                     >
                         <nav className="flex flex-col gap-2 text-center">
-                            {links.map((link) => (
+                            {navLinks.map((link) => (
                                 <Link
                                     key={link.title}
                                     href={link.url}
