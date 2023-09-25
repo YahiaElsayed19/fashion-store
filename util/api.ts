@@ -1,7 +1,6 @@
 import axios from "axios";
-const currentUrl = window.location.origin;
 const API = axios.create({
-    baseURL: `${currentUrl}/api/`,
+    baseURL: `http://localhost:3000/api/`,
 });
 
 export const getProductsByType = (type: string, page?: number) => {
