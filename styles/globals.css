@@ -27,3 +27,17 @@
 .auth-button {
   @apply font-medium text-sm text-black bg-gray-200 dark:text-white dark:bg-dark-container py-1 px-2 sm:py-2 sm:px-3 rounded-full
 }
+
+.button {
+  @apply text-center font-bold text-lg  px-4 py-2 mt-4 bg-white text-black rounded-3xl hover:text-white hover:bg-primary-color w-fit;
+  transition-duration: 0.3s;
+
+}
+
+.bg_image {
+  background-image: url("/assets/hero.jpg");
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: 20%;
+  background-repeat: no-repeat;
+}
