@@ -4,10 +4,10 @@ import '@splidejs/react-splide/css';
 import { useQuery } from 'react-query'
 //@ts-ignore
 import { Splide } from '@splidejs/react-splide'
-import { getAllProducts } from '@util/api';
+import { getProductsByType } from '@util/api';
 import ProductCard from './ProductCard';
 const ProductsList = () => {
-    const { data } = useQuery("id", () => getAllProducts())
+    const { data } = useQuery("trending", () => getProductsByType("trending"))
     return (
         <section className='py-[100px] bg-white dark:bg-black'>
             <div className='container w-full max-w-6xl px-5 mx-auto'>
@@ -15,7 +15,7 @@ const ProductsList = () => {
                     <Splide options={{
                         gap: '1rem',
                         rewind: true,
-                        arrows: true,
+                        arrows: false,
                         pagination: false,
                         autoWidth: true,
                         perMove: 2,
