@@ -1,6 +1,6 @@
 import Product from "@models/product"
 import { connectToDB } from "@util/database"
-const itemsPerPage = 10;
+const itemsPerPage = 20;
 
 export const GET = async (req) => {
     const url = new URL(req.url)
