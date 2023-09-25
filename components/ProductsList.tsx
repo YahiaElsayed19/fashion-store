@@ -9,14 +9,13 @@ import { Splide } from '@splidejs/react-splide'
 import { productType } from '@types';
 
 const ProductsList = ({ queryFunction, title }: { queryFunction: any, title: string }) => {
-    const basePath = typeof window !== undefined && window.location.origin ? window.location.origin : ""
     const { data } = useQuery(title, () => queryFunction(title))
     return (
         <section className='py-[50px] bg-white dark:bg-black'>
             <div className='container w-full max-w-6xl px-5 mx-auto'>
                 <div className="flex justify-between px-5 mb-2">
                     <h2 className='text-black dark:text-white font-bold text-lg capitalize'>{title}</h2>
-                    <Link href={`${basePath}/${title}`} className='text-primary-color hover'>See all</Link>
+                    <Link href={`/${title}`} className='text-primary-color hover'>See all</Link>
                 </div>
                 <div className="p-5 bg-gray-200 dark:bg-dark-container rounded-2xl" >
                     <Splide options={{
