@@ -1,8 +1,11 @@
 import Hero from '@components/Hero'
-import Image from 'next/image'
+import ProductsList from '@components/ProductsList'
 
 export default function Home() {
   return (
-    <Hero />
+    <>
+      <Hero />
+      <ProductsList />
+    </>
   )
 }
