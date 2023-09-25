@@ -1,11 +1,11 @@
 import Hero from '@components/Hero'
-import ProductsList from '@components/ProductsList'
+import Products from '@components/Products'
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <ProductsList />
+      <Products />
     </>
   )
 }
