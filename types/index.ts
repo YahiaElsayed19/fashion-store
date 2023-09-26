@@ -9,7 +9,7 @@ export interface productType {
     images: string[]
     count?: number
 }
-export interface productCard {
+export interface productSlideType {
     id: string;
     title: string;
     imageSrc: string;
