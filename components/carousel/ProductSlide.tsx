@@ -19,8 +19,8 @@ const ProductSlide: React.FC<productSlideType> = ({ id, title, imageSrc, price }
         <SplideSlide className="text-center">
             <Image src={imageSrc} width={150} height={225} alt={title} className='rounded-2xl' />
             <p className='text-black dark:text-white text-md font-bold mt-2 w-[150px] truncate'>{title}</p>
-            <p className='text-primary-color text-sm'>{price} EGP</p>
-            <button disabled={submitting} className='bg-white text-black dark:bg-black dark:text-white font-medium mt-5 py-2 px-3 rounded-2xl hover:bg-primary-color hover:text-white duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed' onClick={addToCartHandler}>+ add to cart</button>
+            <p className='text-secondry dark:text-primary text-sm'>{price} EGP</p>
+            <button disabled={submitting} className='bg-white text-black dark:bg-black dark:text-white font-medium mt-5 py-2 px-3 rounded-2xl hover:bg-primary hover:text-white duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed' onClick={addToCartHandler}>+ add to cart</button>
         </SplideSlide>
     )
 }
