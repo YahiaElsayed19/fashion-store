@@ -39,3 +39,6 @@
   background-position-y: 20%;
   background-repeat: no-repeat;
 }
+.msg-toast{
+  @apply absolute top-0 left-[50%] translate-x-[-50%] text-white p-2 rounded-2xl opacity-80
+}
