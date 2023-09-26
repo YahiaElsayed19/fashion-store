@@ -15,7 +15,7 @@ const ProductsCarousel = ({ queryFunction, title }: { queryFunction: any, title:
             <div className='container w-full max-w-6xl px-5 mx-auto'>
                 <div className="flex justify-between items-center px-5 mb-2">
                     <h2 className='text-black dark:text-white font-bold text-lg capitalize'>{title}</h2>
-                    <Link href={`/${title}`} className='text-secondry dark:text-primary hover'>See all</Link>
+                    <Link href={`/${title}`} className='text-primary hover'>See all</Link>
                 </div>
                 <div className="p-5 bg-gray-200 dark:bg-dark-container rounded-2xl" >
                     <Splide options={{
