@@ -2,8 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "./Navigation";
-import Searchbar from "./Searchbar";
-import AuthButton from "./AuthButton";
+import Searchbar from "../Searchbar";
+import AuthButton from "../AuthButton";
 import MobileNav from "./MobileNav";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";

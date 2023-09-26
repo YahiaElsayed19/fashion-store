@@ -4,7 +4,7 @@ import Link from "next/link";
 import { CgMenu } from "react-icons/cg";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@util/links";
-import Searchbar from "./Searchbar";
+import Searchbar from "@components/Searchbar";
 import { AnimatePresence, motion } from "framer-motion";
 
 const MobileNav = () => {

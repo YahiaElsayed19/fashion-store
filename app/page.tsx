@@ -1,11 +1,11 @@
 import Hero from '@components/Hero'
-import Products from '@components/Products'
+import ProductsCarousels from '@components/carousel/ProductsCarousels'
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Products />
+      <ProductsCarousels />
     </>
   )
 }

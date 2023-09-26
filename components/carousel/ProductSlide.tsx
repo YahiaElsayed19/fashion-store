@@ -3,7 +3,7 @@ import Image from 'next/image'
 //@ts-ignore
 import { SplideSlide } from '@splidejs/react-splide'
 import { productCard } from '@types'
-const ProductCard: React.FC<productCard> = ({ id, title, imageSrc, price }) => {
+const ProductSlide: React.FC<productCard> = ({ id, title, imageSrc, price }) => {
     return (
         <SplideSlide className="text-center">
             <Image src={imageSrc} width={150} height={225} alt={title} className='rounded-2xl' />
@@ -13,4 +13,4 @@ const ProductCard: React.FC<productCard> = ({ id, title, imageSrc, price }) => {
     )
 }
 
-export default ProductCard
+export default ProductSlide

@@ -2,13 +2,13 @@
 import React from 'react'
 import '@splidejs/react-splide/css';
 import { useQuery } from 'react-query'
-import ProductCard from './ProductCard';
+import ProductSlide from './ProductSlide';
 import Link from 'next/link';
 //@ts-ignore
 import { Splide } from '@splidejs/react-splide'
 import { productType } from '@types';
 
-const ProductsList = ({ queryFunction, title }: { queryFunction: any, title: string }) => {
+const ProductsCarousel = ({ queryFunction, title }: { queryFunction: any, title: string }) => {
     const { data } = useQuery(title, () => queryFunction(title))
     return (
         <section className='py-[50px] bg-white dark:bg-black'>
@@ -29,7 +29,7 @@ const ProductsList = ({ queryFunction, title }: { queryFunction: any, title: str
                         pauseOnHover: true,
                     }}
                     >
-                        {data?.data.map((product: productType) => <ProductCard key={product._id} id={product._id} title={product.title} price={product.price} imageSrc={product.images[0]} />)}
+                        {data?.data.map((product: productType) => <ProductSlide key={product._id} id={product._id} title={product.title} price={product.price} imageSrc={product.images[0]} />)}
                     </Splide>
                 </div>
             </div>
@@ -37,4 +37,4 @@ const ProductsList = ({ queryFunction, title }: { queryFunction: any, title: str
     )
 }
 
-export default ProductsList
+export default ProductsCarousel

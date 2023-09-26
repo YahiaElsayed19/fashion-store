@@ -1,5 +1,5 @@
 "use client"
-import Header from '@components/Header'
+import Header from '@components/header/Header'
 import Provider from '@components/Provider'
 import '@styles/globals.css'
 import { Inter } from 'next/font/google'
