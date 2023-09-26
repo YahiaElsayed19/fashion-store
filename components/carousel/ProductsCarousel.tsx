@@ -13,7 +13,7 @@ const ProductsCarousel = ({ queryFunction, title }: { queryFunction: any, title:
     return (
         <section className='py-[50px] bg-white dark:bg-black'>
             <div className='container w-full max-w-6xl px-5 mx-auto'>
-                <div className="flex justify-between px-5 mb-2">
+                <div className="flex justify-between items-center px-5 mb-2">
                     <h2 className='text-black dark:text-white font-bold text-lg capitalize'>{title}</h2>
                     <Link href={`/${title}`} className='text-primary-color hover'>See all</Link>
                 </div>

@@ -14,3 +14,7 @@ export const getProductsByCategory = (category: string, page?: number) => {
 export const getProductsByGender = (gender: string, page?: number) => {
     return API.get(`products/${gender}`, { params: { page: page } })
 }
+
+export const addToCart = (userId: string, productId: string) => {
+    return API.post(`cart/${userId}`, {}, { params: { 'product-id': productId } })
+}
