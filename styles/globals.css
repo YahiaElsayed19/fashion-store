@@ -29,9 +29,7 @@
 }
 
 .button {
-  @apply text-center font-bold text-lg  px-4 py-2 mt-4 bg-white text-black rounded-3xl hover:text-white hover:bg-primary-color w-fit;
-  transition-duration: 0.3s;
-
+  @apply text-center font-bold text-lg  px-4 py-2 mt-4 bg-white text-black rounded-3xl hover:text-white hover:bg-primary-color w-fit duration-300;
 }
 
 .bg_image {
