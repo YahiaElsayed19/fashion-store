@@ -3,15 +3,15 @@ import { connectToDB } from "@util/database";
 
 export const GET = async (req) => {
     const url = new URL(req.url);
-    let searchTerm = url.searchParams.get("search");
+    let search = url.searchParams.get("search");
     try {
         await connectToDB();
         const products = await Product.find({
             $or: [
-                { title: searchTerm },
-                { type: searchTerm },
-                { category: searchTerm },
-                { gender: searchTerm },
+                { title: search },
+                { type: search },
+                { category: search },
+                { gender: search },
             ],
         });
         return new Response(JSON.stringify(products), { status: 200 });

@@ -21,3 +21,7 @@ export const getProductsByGender = (gender: string, page?: number) => {
 export const addToCart = (userId: string, productId: string) => {
     return API.post(`cart/${userId}`, {}, { params: { 'product-id': productId } })
 }
+
+export const searchProducts = (search: string) => {
+    return API.get(`search`, { params: { search: search } })
+}
