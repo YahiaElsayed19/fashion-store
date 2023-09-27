@@ -9,7 +9,6 @@ const AuthButton = () => {
         const getProvidersFn = async () => {
             const response = await getProviders();
             setProviders(response);
-            console.log(response);
         };
         getProvidersFn();
     }, []);
