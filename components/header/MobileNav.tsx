@@ -67,7 +67,7 @@ const MobileNav = () => {
                             ))}
                         </nav>
                         <div id="Searchbar">
-                            <Searchbar />
+                            <Searchbar closeMenuHandler={closeMenuHandler}/>
                         </div>
                     </motion.div>
                 )}
