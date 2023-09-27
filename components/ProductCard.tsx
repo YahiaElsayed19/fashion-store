@@ -30,7 +30,7 @@ const ProductCard: React.FC<productCardType> = ({
     };
 
     return (
-        <div className="text-center relative">
+        <div className="text-center relative flex flex-col items-center">
             <Image
                 src={imageSrc}
                 width={180}
