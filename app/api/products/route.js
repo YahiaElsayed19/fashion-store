@@ -14,4 +14,4 @@ export const GET = async (req) => {
         return new Response(JSON.stringify(error), { status: 500 })
     }
 }
-// products 43 pages
+// products 22 pages
