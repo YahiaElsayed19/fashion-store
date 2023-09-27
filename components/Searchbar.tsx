@@ -1,7 +1,7 @@
 import React, { FormEvent, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { RiSearchLine } from "react-icons/ri";
-const Searchbar = ({ closeMenuHandler }: { closeMenuHandler: () => void }) => {
+const Searchbar = ({ closeMenuHandler }: { closeMenuHandler?: () => void }) => {
     const searchRef = useRef<HTMLInputElement>(null)
     const router = useRouter()
     const searchHandler = (e: FormEvent) => {
