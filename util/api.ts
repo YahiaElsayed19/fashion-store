@@ -3,6 +3,9 @@ const API = axios.create({
     baseURL: `api/`,
 });
 
+export const getProducts = (page?: number) => {
+    return API.get(`products`, { params: { page: page } })
+}
 export const getProductsByType = (type: string, page?: number) => {
     return API.get(`types/${type}`, { params: { page: page } })
 }
