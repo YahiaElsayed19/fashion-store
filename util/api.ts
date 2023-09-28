@@ -1,6 +1,6 @@
 import axios from "axios";
 const API = axios.create({
-    baseURL: `api/`,
+    baseURL: `/api/`,
 });
 
 export const getProducts = (page?: number) => {

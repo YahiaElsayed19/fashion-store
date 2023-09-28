@@ -8,14 +8,14 @@ import Link from 'next/link';
 import { Splide } from '@splidejs/react-splide'
 import { productType } from '@types';
 
-const ProductsCarousel = ({ queryFunction, title }: { queryFunction: any, title: string }) => {
+const ProductsCarousel = ({ queryFunction, title, url }: { queryFunction: any, title: string, url: string }) => {
     const { data } = useQuery(title, () => queryFunction(title))
     return (
         <section className='py-[50px] bg-white dark:bg-black'>
             <div className='container w-full max-w-6xl px-5 mx-auto'>
                 <div className="flex justify-between items-center px-5 mb-2">
                     <h2 className='text-black dark:text-white font-bold text-lg capitalize'>{title}</h2>
-                    <Link href={`/${title}`} className='text-primary hover'>See all</Link>
+                    <Link href={url} className='text-primary hover'>See all</Link>
                 </div>
                 <div className="p-5 bg-gray-200 dark:bg-dark-container rounded-2xl" >
                     <Splide options={{
