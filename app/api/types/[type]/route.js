@@ -15,6 +15,6 @@ export const GET = async (req, { params }) => {
     }
 }
 
-// new 18 pages
-// trending 15 pages
-// hot 11 pages
+// new 9 pages
+// trending 8 pages
+// hot 6 pages
