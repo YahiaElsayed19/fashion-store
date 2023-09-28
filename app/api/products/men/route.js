@@ -15,4 +15,4 @@ export const GET = async (req, { params }) => {
     }
 }
 
-// men 14 pages
+// men 7 pages

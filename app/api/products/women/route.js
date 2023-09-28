@@ -15,4 +15,4 @@ export const GET = async (req, { params }) => {
     }
 }
 
-// women 30 pages
+// women 15 pages
