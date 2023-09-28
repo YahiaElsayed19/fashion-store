@@ -7,11 +7,11 @@ export const getProducts = (page?: number) => {
     return API.get(`products`, { params: { page: page } })
 }
 export const getProductsByType = (type: string, page?: number) => {
-    return API.get(`types/${type}`, { params: { page: page } })
+    return API.get(`products/types/${type}`, { params: { page: page } })
 }
 
 export const getProductsByCategory = (category: string, page?: number) => {
-    return API.get(`categories/${category}`, { params: { page: page } })
+    return API.get(`products/categories/${category}`, { params: { page: page } })
 }
 
 export const getProductsByGender = (gender: string, page?: number) => {
