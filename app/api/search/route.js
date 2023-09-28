@@ -4,14 +4,16 @@ import { connectToDB } from "@util/database";
 export const GET = async (req) => {
     const url = new URL(req.url);
     let search = url.searchParams.get("search");
+    const regexCaseInsenstive = new RegExp(`^${search}$`, 'i');
+    const regexPart = new RegExp(`\\b(?:${search}|.*${search}.*)\\b`, 'i');
     try {
         await connectToDB();
         const products = await Product.find({
             $or: [
-                { title: search },
-                { type: search },
-                { category: search },
-                { gender: search },
+                { title: { $regex: regexPart } },
+                { type: { $regex: regexCaseInsenstive } },
+                { category: { $regex: regexPart } },
+                { gender: { $regex: regexCaseInsenstive } },
             ],
         });
         return new Response(JSON.stringify(products), { status: 200 });
