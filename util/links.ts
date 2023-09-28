@@ -1,15 +1,15 @@
 export const navLinks: { title: string, url: string }[] = [
     {
         title: "Trending",
-        url: "/trending",
+        url: "/products/types/trending",
     },
     {
         title: "New",
-        url: "/new",
+        url: "/products/types/new",
     },
     {
         title: "Hot",
-        url: "/hot",
+        url: "/products/types/hot",
     },
     {
         title: "Wishlist",
@@ -25,38 +25,47 @@ import { getProductsByCategory, getProductsByGender, getProductsByType } from '@
 export const END_POINTS = [
     {
         title: "trending",
+        url: "/products/types/trending",
         queryFunction: getProductsByType,
     },
     {
         title: "new",
+        url: "/products/types/new",
         queryFunction: getProductsByType,
     },
     {
         title: "hot",
+        url: "/products/types/hot",
         queryFunction: getProductsByType,
     },
     {
         title: "men",
+        url: "/products/men",
         queryFunction: getProductsByGender,
     },
     {
         title: "women",
+        url: "/products/women",
         queryFunction: getProductsByGender,
     },
     {
         title: "top",
+        url: "/products/categories/top",
         queryFunction: getProductsByCategory,
     },
     {
         title: "trousers",
+        url: "/products/categories/trousers",
         queryFunction: getProductsByCategory,
     },
     {
         title: "skirt",
+        url: "/products/categories/skirt",
         queryFunction: getProductsByCategory,
     },
     {
         title: "dress",
+        url: "/products/categories/dress",
         queryFunction: getProductsByCategory,
     },
 
