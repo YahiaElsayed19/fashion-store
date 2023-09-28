@@ -15,7 +15,7 @@ export const GET = async (req, { params }) => {
     }
 }
 
-// top 17 pages
-// trousers 15 pages
-// dress 10 pages
-// skirt 3 pages
+// top 9 pages
+// trousers 8 pages
+// dress 5 pages
+// skirt 2 pages
