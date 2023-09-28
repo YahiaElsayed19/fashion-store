@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import ProductsList from '@components/product/ProductsList'
 import { productType } from '@types'
 import { Triangle } from 'react-loader-spinner'
-import {getProductsByCategory} from '@util/api'
+import { getProductsByCategory } from '@util/api'
 const lastPage: any = {
     "top": 9,
     "trousers": 8,
@@ -33,8 +33,7 @@ const page = ({ params }: { params: { category: string } }) => {
     }, [page])
     return (
         <section className='min-h-screen bg-white dark:bg-black flex flex-col items-center py-[50px]'>
-            <h1 className='text-2xl font-bold uppercase text-center text-black dark:text-white'>{category} products</h1>
-            <ProductsList products={products} />
+            <ProductsList products={products} title={category} />
             {loading && <Triangle
                 height="80"
                 width="80"

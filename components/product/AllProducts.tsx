@@ -26,8 +26,7 @@ const AllProducts = () => {
     }, [page])
     return (
         <section className='bg-white dark:bg-black flex flex-col items-center py-[50px]'>
-            <h1 className='text-2xl font-bold uppercase text-center text-black dark:text-white'>All products</h1>
-            <ProductsList products={products} />
+            <ProductsList products={products} title='All'/>
             {loading && <Triangle
                 height="80"
                 width="80"

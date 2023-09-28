@@ -4,7 +4,7 @@ import ProductsList from '@components/product/ProductsList'
 import { productType } from '@types'
 import { Triangle } from 'react-loader-spinner'
 import { getProductsByType } from '@util/api'
-const lastPage:any = {
+const lastPage: any = {
     "new": 9,
     "trending": 8,
     "hot": 6,
@@ -32,8 +32,7 @@ const page = ({ params }: { params: { type: string } }) => {
     }, [page])
     return (
         <section className='min-h-screen bg-white dark:bg-black flex flex-col items-center py-[50px]'>
-            <h1 className='text-2xl font-bold uppercase text-center text-black dark:text-white'>{type} products</h1>
-            <ProductsList products={products} />
+            <ProductsList products={products} title={type}/>
             {loading && <Triangle
                 height="80"
                 width="80"
