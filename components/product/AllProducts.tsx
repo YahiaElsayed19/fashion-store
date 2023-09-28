@@ -18,16 +18,11 @@ const AllProducts = () => {
             if (page === 1) {
                 setProducts(data)
             }
-            if (page > 1 && page < 23) {
+            if (page > 1 && page <=22) {
                 setProducts((prev) => [...prev, ...data])
             }
             setLoading(false)
         })()
-        window.onscroll = function () {
-            if ((window.innerHeight + Math.ceil(window.scrollY)) >= document.body.offsetHeight) {
-                loadMore()
-            }
-        }
     }, [page])
     return (
         <section className='bg-white dark:bg-black flex flex-col items-center py-[50px]'>
@@ -38,7 +33,7 @@ const AllProducts = () => {
                 width="80"
                 color="#2196f3"
             />}
-            {/* <button className='button' onClick={loadMore}>Show more</button> */}
+            <button className='button' onClick={loadMore}>Show more</button>
         </section>
     )
 }

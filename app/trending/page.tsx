@@ -19,16 +19,11 @@ const page = () => {
             if (page === 1) {
                 setProducts(data)
             }
-            if (page > 1 && page < 23) {
+            if (page > 1 && page <=8) {
                 setProducts((prev) => [...prev, ...data])
             }
             setLoading(false)
         })()
-        window.onscroll = function () {
-            if ((window.innerHeight + Math.ceil(window.scrollY)) >= document.body.offsetHeight) {
-                loadMore()
-            }
-        }
     }, [page])
     return (
         <section className='min-h-screen bg-white dark:bg-black flex flex-col items-center py-[50px]'>
@@ -39,7 +34,7 @@ const page = () => {
                 width="80"
                 color="#2196f3"
             />}
-            {/* <button className='button' onClick={loadMore}>Show more</button> */}
+            <button className='button' onClick={loadMore}>Show more</button>
         </section>
     )
 }
