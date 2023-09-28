@@ -19,7 +19,7 @@ const page = () => {
     return (
         <section className='bg-white dark:bg-black flex flex-col items-center py-[50px] min-h-screen'>
             <h1 className='text-2xl font-bold uppercase text-center text-black dark:text-white mb-7'>Search results:</h1>
-            {!isLoading && data?.data.length > 0 && <ProductsList products={data?.data} />}
+            {!isLoading && data?.data.length > 0 && <ProductsList products={data?.data} title={search}/>}
             {isLoading && <Triangle
                 height="80"
                 width="80"
