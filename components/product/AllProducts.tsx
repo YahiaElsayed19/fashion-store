@@ -33,7 +33,7 @@ const AllProducts = () => {
                 width="80"
                 color="#2196f3"
             />}
-            <button className='button' onClick={loadMore}>Show more</button>
+            <button className='button' onClick={loadMore} disabled={page >= 22}>Show more</button>
         </section>
     )
 }

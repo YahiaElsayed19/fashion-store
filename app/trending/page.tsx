@@ -19,7 +19,7 @@ const page = () => {
             if (page === 1) {
                 setProducts(data)
             }
-            if (page > 1 && page <=8) {
+            if (page > 1 && page <= 8) {
                 setProducts((prev) => [...prev, ...data])
             }
             setLoading(false)
@@ -34,7 +34,7 @@ const page = () => {
                 width="80"
                 color="#2196f3"
             />}
-            <button className='button' onClick={loadMore}>Show more</button>
+            <button className='button' onClick={loadMore} disabled={page >= 8}>Show more</button>
         </section>
     )
 }
