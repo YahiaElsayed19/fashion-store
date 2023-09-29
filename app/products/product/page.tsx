@@ -1,11 +1,12 @@
-"use client"
-import { useSearchParams } from 'next/navigation'
 import React from 'react'
 
-const page = () => {
-    const productId = useSearchParams().get("product-id")
+const page = async ({ searchParams }: { searchParams: any }) => {
+    const response = await fetch(`${process.env.BASE_URL}/api/products/product?product-id=${searchParams['product-id']}`)
+    const data = await response.json()
+    console.log(data);
+
     return (
-        <div>{productId}</div>
+        <div>test</div>
     )
 }
 
