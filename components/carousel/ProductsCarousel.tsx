@@ -17,7 +17,7 @@ const ProductsCarousel = ({ queryFunction, title, url }: { queryFunction: any, t
                     <h2 className='text-black dark:text-white font-bold text-lg capitalize'>{title}</h2>
                     <Link href={url} className='text-primary hover'>See all</Link>
                 </div>
-                <div className="p-5 bg-gray-200 dark:bg-dark-container rounded-2xl" >
+                <div className="p-5 bg-gray-200 dark:bg-dark-container rounded-xl" >
                     <Splide options={{
                         gap: '1rem',
                         rewind: true,

@@ -42,7 +42,7 @@ const ProductCard: React.FC<productCardType> = ({
                         width={180}
                         height={270}
                         alt={title}
-                        className="rounded-2xl group-[.list]:w-full sm:group-[.list]:w-[180px]"
+                        className="rounded-xl group-[.list]:w-full sm:group-[.list]:w-[180px]"
                     />
                 </div>
                 <p className="text-black dark:text-white text-md font-bold mt-2 w-[150px] truncate">
