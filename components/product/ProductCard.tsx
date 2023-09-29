@@ -31,18 +31,20 @@ const ProductCard: React.FC<productCardType> = ({
     };
 
     return (
-        <div className="text-center relative flex flex-col items-center">
+        <div className="text-center relative flex flex-col items-center group-[.list]:w-full sm:group-[.list]:w-auto">
             <Link
                 href={`/products/product?product-id=${id}`}
                 className="text-center relative flex flex-col items-center"
             >
-                <Image
-                    src={imageSrc}
-                    width={180}
-                    height={270}
-                    alt={title}
-                    className="rounded-2xl"
-                />
+                <div className="group-[.list]:w-full sm:group-[.list]:w-auto relative">
+                    <Image
+                        src={imageSrc}
+                        width={180}
+                        height={270}
+                        alt={title}
+                        className="rounded-2xl group-[.list]:w-full sm:group-[.list]:w-[180px]"
+                    />
+                </div>
                 <p className="text-black dark:text-white text-md font-bold mt-2 w-[150px] truncate">
                     {title}
                 </p>
@@ -50,7 +52,7 @@ const ProductCard: React.FC<productCardType> = ({
             </Link>
             <button
                 disabled={submitting}
-                className="w-full bg-white text-black dark:bg-black dark:text-white font-medium mt-5 py-2 px-3 rounded-full hover:bg-primary hover:text-white duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="group-[.list]:w-fit sm:group-[.list]:w-full w-full bg-white text-black dark:bg-black dark:text-white font-medium mt-5 py-2 px-3 rounded-full hover:bg-primary hover:text-white duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed"
                 onClick={addToCartHandler}
             >
                 + add to cart
