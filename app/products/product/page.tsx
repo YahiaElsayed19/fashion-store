@@ -10,7 +10,6 @@ const page = () => {
     useEffect(() => {
         (async () => {
             const { data } = await getProduct(productId)
-            //@ts-ignore
             setProduct(data)
         })()
     }, [])
