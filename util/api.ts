@@ -8,8 +8,8 @@ export const getProducts = (page?: number) => {
     return API.get(`products`, { params: { page: page } })
 }
 
-export const getProduct = () => {
-    return API.get(`products/product`)
+export const getProduct = (productId?: string) => {
+    return API.get(`products/product?product-id=${productId}`)
 }
 
 export const getProductsByType = (type: string, page?: number) => {
