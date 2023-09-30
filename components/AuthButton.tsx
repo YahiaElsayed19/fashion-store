@@ -1,43 +1,32 @@
-import React from 'react'
-import { useEffect, useState } from "react";
-import { signIn, signOut, getProviders, useSession } from "next-auth/react";
+import React from "react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const AuthButton = () => {
     const { data: session } = useSession();
-    const [providers, setProviders] = useState<any>(null);
-    useEffect(() => {
-        const getProvidersFn = async () => {
-            const response = await getProviders();
-            setProviders(response);
-        };
-        getProvidersFn();
-    }, []);
-
+    const provider = {
+        id: "google",
+        name: "Google",
+    };
     return (
         <div>
             {session?.user ? (
-                <button
-                    className="auth-button"
-                    onClick={() => signOut()}
-                >
+                <button type="button" className="auth-button" onClick={() => signOut()}>
                     Sign out
                 </button>
             ) : (
                 <>
-                    {providers &&
-                        Object.values(providers).map((provider: any) => (
-                            <button
-                                type="button"
-                                key={provider.name}
-                                onClick={() => signIn(provider.id)}
-                                className="auth-button"
-                            >
-                                Sign in
-                            </button>
-                        ))}
+                    <button
+                        type="button"
+                        key={provider.name}
+                        onClick={() => signIn(provider.id)}
+                        className="auth-button"
+                    >
+                        Sign in
+                    </button>
                 </>
             )}
-        </div>)
-}
+        </div>
+    );
+};
 
-export default AuthButton
+export default AuthButton;
