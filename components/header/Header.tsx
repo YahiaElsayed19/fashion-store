@@ -40,16 +40,16 @@ const Header = () => {
                             <Image
                                 src="/assets/logo-black.png"
                                 width={100}
-                                height={100}
+                                height={30}
                                 alt="logo"
-                                className="dark:hidden object-contain "
+                                className="dark:hidden "
                             />
                             <Image
                                 src="/assets/logo-white.png"
                                 width={100}
-                                height={100}
+                                height={30}
                                 alt="logo"
-                                className="hidden dark:block object-contain"
+                                className="hidden dark:block"
                             />
                         </Link>
                     </div>
