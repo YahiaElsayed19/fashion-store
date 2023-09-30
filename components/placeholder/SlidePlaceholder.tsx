@@ -9,7 +9,7 @@ const SlidePlaceholder = ({ count }: { count: number }) => {
     return (
         <>
             {
-                placeholder.map(() => <SplideSlide>
+                placeholder.map((i) => <SplideSlide key={i}>
                     <div className='flex flex-col items-center gap-4'>
                         <div className='w-[180px] h-[270px] bg-white dark:bg-black animate-pulse' />
                         <div className='w-[100px] h-[20px] bg-white dark:bg-black animate-pulse' />
