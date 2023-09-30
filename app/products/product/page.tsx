@@ -9,7 +9,7 @@ import { productType } from "@types";
 import { useSession } from "next-auth/react";
 import { BsCartCheckFill } from "react-icons/bs";
 import { IoMdCloseCircle } from "react-icons/io";
-import { Triangle } from "react-loader-spinner";
+import SingleProductPlaceholder from "@components/placeholder/SingleProductPlaceholder";
 const page = () => {
     const { data: session } = useSession();
     const [submitting, setSubmitting] = useState(false);
@@ -43,13 +43,12 @@ const page = () => {
 
     return (
         <section className="min-h-screen bg-gray-200 dark:bg-dark-container">
-            {loading ? (
-                <div className="flex justify-center items-center min-h-screen">
-                    <Triangle height="80" width="80" color="#2196f3" />
-                </div>
-            ) : (
-                <div className="container p-4 mx-auto flex flex-col-reverse lg:flex-row lg:justify-center gap-4">
-                    {product && <div className="px-4 mx-auto w-full lg:w-[400px] bg-white dark:bg-black lg:sticky lg:top-[144px] lg:left-0 h-fit">
+            <div className="container p-4 mx-auto flex flex-col-reverse lg:flex-row lg:justify-center gap-4">
+                {loading ? (
+                    <SingleProductPlaceholder />
+                ) : (
+                    <>
+                    <div className="px-4 mx-auto w-full lg:w-[400px] bg-white dark:bg-black lg:sticky lg:top-[144px] lg:left-0 h-fit">
                         <div className="text-right text-black dark:text-white py-3 pb-5 border-b border-gray-200 dark:border-dark-container ">
                             <p className="text-primary font-bold text-lg mb-4">
                                 {product?.title}
@@ -72,10 +71,7 @@ const page = () => {
                             <Link href={`/products/types/${product?.type}`} className="tag">
                                 {product?.type}
                             </Link>
-                            <Link
-                                href={`/products/${product?.gender}`}
-                                className="tag"
-                            >
+                            <Link href={`/products/${product?.gender}`} className="tag">
                                 {product?.gender}
                             </Link>
                         </div>
@@ -94,24 +90,26 @@ const page = () => {
                                 <IoMdCloseCircle className="text-red-600 absolute top-3 left-2 w-7 h-7" />
                             )}
                         </div>
-                    </div>}
-                    <div className="flex-1">
-                        <div className="grid grid-cols-2 gap-4">
-                            {product?.images.map((image) => (
-                                <Image
-                                    key={image}
-                                    src={image}
-                                    width={408}
-                                    height={612}
-                                    quality={100}
-                                    alt={product.title}
-                                    className="w-full max-lg:odd:last-of-type:col-span-2"
-                                />
-                            ))}
-                        </div>
+                    </div>
+                
+                <div className="flex-1">
+                    <div className="grid grid-cols-2 gap-4">
+                        {product?.images.map((image) => (
+                            <Image
+                                key={image}
+                                src={image}
+                                width={408}
+                                height={612}
+                                quality={100}
+                                alt={product.title}
+                                className="w-full max-lg:odd:last-of-type:col-span-2"
+                            />
+                        ))}
                     </div>
                 </div>
-            )}
+                </>
+                )}
+            </div>
         </section>
     );
 };
