@@ -26,8 +26,7 @@ const AllProducts = () => {
     }, [page]);
     return (
         <section className="bg-white dark:bg-black flex flex-col items-center py-[50px]">
-            {products.length > 0 && <ProductsList products={products} title="All" />}
-            {loading && <Triangle height="80" width="80" color="#2196f3" />}
+            <ProductsList products={products} title="All" loading={loading}/>
             {products.length > 0 && <button
                 type="button"
                 className="button"
