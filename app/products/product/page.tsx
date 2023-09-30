@@ -6,8 +6,9 @@ import { productType } from "@types";
 import Link from "next/link";
 import { addToCart } from "@util/api";
 import { useSession } from "next-auth/react";
-import { BsCartCheckFill } from 'react-icons/bs'
-import { IoMdCloseCircle } from 'react-icons/io'
+import { BsCartCheckFill } from "react-icons/bs";
+import { IoMdCloseCircle } from "react-icons/io";
+import Image from "next/image";
 const page = () => {
     const { data: session } = useSession();
     const [submitting, setSubmitting] = useState(false);
@@ -20,9 +21,9 @@ const page = () => {
         try {
             //@ts-ignore
             await addToCart(session?.user.id, productId);
-            setSuccess(true)
+            setSuccess(true);
         } catch (error) {
-            setSuccess(false)
+            setSuccess(false);
         }
         setTimeout(() => {
             setSuccess(null);
@@ -40,9 +41,9 @@ const page = () => {
     }, []);
 
     return (
-        <section className="min-h-screen bg-gray-200 dark:bg-dark-container ">
-            <div className="container p-4 mx-auto flex flex-row justify-center ">
-                <div className="px-4 mx-auto w-[400px] bg-white dark:bg-black sticky top-0 left-0 rounded-xl">
+        <section className="min-h-screen bg-gray-200 dark:bg-dark-container">
+            <div className="container p-4 mx-auto flex flex-col lg:flex-row lg:justify-center gap-4">
+                <div className="px-4 mx-auto w-full lg:w-[400px] bg-white dark:bg-black lg:sticky lg:top-[144px] lg:left-0 rounded-xl h-fit">
                     <div className="text-right text-black dark:text-white py-3 pb-5 border-b border-gray-200 dark:border-dark-container ">
                         <p className="text-primary font-bold text-lg mb-4">
                             {product?.title}
@@ -75,11 +76,30 @@ const page = () => {
                         >
                             + add to cart
                         </button>
-                        {success === true && <BsCartCheckFill className="text-green-400 absolute top-3 left-2 w-7 h-7" />}
-                        {success === false && <IoMdCloseCircle className="text-red-600 absolute top-3 left-2 w-7 h-7"/>}
+                        {success === true && (
+                            <BsCartCheckFill className="text-green-400 absolute top-3 left-2 w-7 h-7" />
+                        )}
+                        {success === false && (
+                            <IoMdCloseCircle className="text-red-600 absolute top-3 left-2 w-7 h-7" />
+                        )}
                     </div>
                 </div>
-                <div className="flex-1"></div>
+                <div className="flex-1">
+                    <div className="grid grid-cols-2 gap-4">
+                        {product?.images.map((image) => (
+                            <Image
+                                key={image}
+                                src={image}
+                                width={408}
+                                height={612}
+                                quality={100}
+                                priority
+                                alt={product.title}
+                                className="w-full object-contain"
+                            />
+                        ))}
+                    </div>
+                </div>
             </div>
         </section>
     );
