@@ -14,7 +14,7 @@ const page = () => {
     const { data: session } = useSession();
     const [submitting, setSubmitting] = useState(false);
     const [success, setSuccess] = useState<boolean | null>();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [product, setProduct] = useState<productType>();
     const productId = useSearchParams().get("product-id") || "";
     const addToCartHandler = async () => {
