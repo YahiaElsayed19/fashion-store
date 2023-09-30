@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProductPlaceholder = ({ count }: { count: number }) => {
+const ProductCardPlaceholder = ({ count }: { count: number }) => {
     const placeholder: number[] = []
     for (let i = 0; i < count; i++) {
         placeholder.push(i)
@@ -20,4 +20,4 @@ const ProductPlaceholder = ({ count }: { count: number }) => {
     )
 }
 
-export default ProductPlaceholder
+export default ProductCardPlaceholder
