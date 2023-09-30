@@ -64,7 +64,7 @@ const page = () => {
                         <Link href={`/products/types/${product?.type}`} className="tag">
                             {product?.type}
                         </Link>
-                        <Link href={`/products/${product?.gender}`} className="tag">
+                        <Link href={`/products/${product?.gender || "wommen"}`} className="tag">
                             {product?.gender}
                         </Link>
                     </div>
