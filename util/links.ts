@@ -70,3 +70,36 @@ export const END_POINTS = [
     },
 
 ]
+
+export const categoriesLinks: { title: string, url: string }[] = [
+    {
+        title: "Top",
+        url: "/products/categories/top",
+    },
+    {
+        title: "Trousers",
+        url: "/products/categories/trousers",
+    },
+    {
+        title: "Dress",
+        url: "/products/categories/dress",
+    },
+    {
+        title: "Skirt",
+        url: "/products/categories/skirt",
+    },
+]
+export const typesLinks: { title: string, url: string }[] = [
+    {
+        title: "Trending",
+        url: "/products/types/trending",
+    },
+    {
+        title: "New",
+        url: "/products/types/new",
+    },
+    {
+        title: "Hot",
+        url: "/products/types/hot",
+    },
+]
