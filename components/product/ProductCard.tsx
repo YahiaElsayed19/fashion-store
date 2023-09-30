@@ -57,8 +57,8 @@ const ProductCard: React.FC<productCardType> = ({
             >
                 + add to cart
             </button>
-            {success === true && <p className="msg-toast bg-green-400">Successed</p>}
-            {success === false && <p className="msg-toast bg-red-600 ">Failed</p>}
+            {success === true && <p className="msg-toast left-[50%] translate-x-[-50%] bg-green-400">Successed</p>}
+            {success === false && <p className="msg-toast left-[50%] translate-x-[-50%] bg-red-600 ">Failed</p>}
         </div>
     );
 };
