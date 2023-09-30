@@ -93,7 +93,6 @@ const page = () => {
                                 width={408}
                                 height={612}
                                 quality={100}
-                                priority
                                 alt={product.title}
                                 className="w-full max-lg:odd:last-of-type:col-span-2"
                             />
