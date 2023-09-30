@@ -70,7 +70,7 @@ const page = () => {
                     </div>
                     <div className="py-5">
                         <button
-                            className="w-full text-white bg-primary py-2 px-3 hover:bg-secondry duration-300 rounded-full disabled:bg-gray-400 disabled:cursor-not-allowed"
+                            className="w-full text-white dark:text-black dark:bg-white bg-black py-2 px-3 hover:text-white hover:bg-primary duration-300 rounded-full disabled:bg-gray-400 disabled:cursor-not-allowed"
                             onClick={addToCartHandler}
                             disabled={submitting}
                         >
