@@ -4,7 +4,7 @@ import React from 'react'
 import { productType } from '@types'
 import ProductCard from './ProductCard'
 import ProductPlaceholder from '@components/placeholder/ProductPlaceholder'
-const ProductsList = ({ products, title ,loading}: { title: string, products: productType[],loading?:boolean }) => {
+const ProductsList = ({ products, title, loading }: { title: string, products: productType[], loading?: boolean }) => {
     return (
         <div className='flex flex-col items-center bg-white dark:bg-black group list'>
             <h1 className='text-2xl font-bold uppercase text-center text-black dark:text-white'><span className='text-primary'>{title}</span> products</h1>

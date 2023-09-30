@@ -3,10 +3,9 @@ import React, { useEffect, useState } from "react";
 import { getProducts } from "@util/api";
 import ProductsList from "./ProductsList";
 import { productType } from "@types";
-import { Triangle } from "react-loader-spinner";
 const AllProducts = () => {
     const [page, setPage] = useState(1);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState<productType[]>([]);
     const loadMore = () => {
         setPage((prev) => prev + 1);

@@ -11,7 +11,7 @@ const lastPage: any = {
 const page = ({ params }: { params: { type: string } }) => {
     const type = params.type;
     const [page, setPage] = useState(1);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState<productType[]>([]);
     const loadMore = () => {
         setPage((prev) => prev + 1);
