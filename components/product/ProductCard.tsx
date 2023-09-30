@@ -5,6 +5,8 @@ import { productCardType } from "@types";
 import { addToCart } from "@util/api";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { BsCartCheckFill } from 'react-icons/bs'
+import { IoMdCloseCircle } from 'react-icons/io'
 
 const ProductCard: React.FC<productCardType> = ({
     id,
@@ -57,8 +59,8 @@ const ProductCard: React.FC<productCardType> = ({
             >
                 + add to cart
             </button>
-            {success === true && <p className="msg-toast bg-green-400">Successed</p>}
-            {success === false && <p className="msg-toast bg-red-600 ">Failed</p>}
+            {success === true && <BsCartCheckFill className="text-green-400 absolute top-3 left-2 w-10 h-10 p-2 rounded-[50%] bg-dark-container" />}
+            {success === false && <IoMdCloseCircle className="text-red-600 absolute top-3 left-2 w-10 h-10 p-2 rounded-[50%] bg-dark-container" />}
         </div>
     );
 };

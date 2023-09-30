@@ -6,7 +6,8 @@ import { productType } from "@types";
 import Link from "next/link";
 import { addToCart } from "@util/api";
 import { useSession } from "next-auth/react";
-
+import { BsCartCheckFill } from 'react-icons/bs'
+import { IoMdCloseCircle } from 'react-icons/io'
 const page = () => {
     const { data: session } = useSession();
     const [submitting, setSubmitting] = useState(false);
@@ -25,7 +26,7 @@ const page = () => {
         }
         setTimeout(() => {
             setSuccess(null);
-        }, 2000);
+        }, 5000);
         setSubmitting(false);
     };
 
@@ -74,8 +75,8 @@ const page = () => {
                         >
                             + add to cart
                         </button>
-                        {success === true && <p></p>}
-                        {success === false && <p ></p>}
+                        {success === true && <BsCartCheckFill className="text-green-400 absolute top-3 left-2 w-7 h-7" />}
+                        {success === false && <IoMdCloseCircle className="text-red-600 absolute top-3 left-2 w-7 h-7"/>}
                     </div>
                 </div>
                 <div className="flex-1"></div>
