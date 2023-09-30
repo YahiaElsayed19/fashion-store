@@ -74,8 +74,8 @@ const page = () => {
                         >
                             + add to cart
                         </button>
-                        {success === true && <p className="msg-toast left-2 bg-green-400">Successed</p>}
-                        {success === false && <p className="msg-toast left-2 bg-red-600">Failed</p>}
+                        {success === true && <p></p>}
+                        {success === false && <p ></p>}
                     </div>
                 </div>
                 <div className="flex-1"></div>
