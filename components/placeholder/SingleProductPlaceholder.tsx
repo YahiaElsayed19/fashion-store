@@ -20,10 +20,10 @@ const SingleProductPlaceholder = () => {
             </div>
             <div className="flex-1">
                 <div className='grid grid-cols-2 gap-2'>
-                    <div className="w-full h-[500px] bg-white dark:bg-black animate-pulse" />
-                    <div className="w-full h-[500px] bg-white dark:bg-black animate-pulse" />
-                    <div className="w-full h-[500px] bg-white dark:bg-black animate-pulse" />
-                    <div className="w-full h-[500px] bg-white dark:bg-black animate-pulse" />
+                    <div className="w-full h-[250px] sm:h-[500px] bg-white dark:bg-black animate-pulse" />
+                    <div className="w-full h-[250px] sm:h-[500px] bg-white dark:bg-black animate-pulse" />
+                    <div className="w-full h-[250px] sm:h-[500px] bg-white dark:bg-black animate-pulse" />
+                    <div className="w-full h-[250px] sm:h-[500px] bg-white dark:bg-black animate-pulse" />
                 </div>
             </div>
         </>
