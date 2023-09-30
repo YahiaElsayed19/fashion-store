@@ -42,7 +42,7 @@ const page = () => {
 
     return (
         <section className="min-h-screen bg-gray-200 dark:bg-dark-container">
-            <div className="container p-4 mx-auto flex flex-col lg:flex-row lg:justify-center gap-4">
+            <div className="container p-4 mx-auto flex flex-col-reverse lg:flex-row lg:justify-center gap-4">
                 <div className="px-4 mx-auto w-full lg:w-[400px] bg-white dark:bg-black lg:sticky lg:top-[144px] lg:left-0 h-fit">
                     <div className="text-right text-black dark:text-white py-3 pb-5 border-b border-gray-200 dark:border-dark-container ">
                         <p className="text-primary font-bold text-lg mb-4">
@@ -95,7 +95,7 @@ const page = () => {
                                 quality={100}
                                 priority
                                 alt={product.title}
-                                className="w-full object-contain"
+                                className="w-full max-lg:odd:last-of-type:col-span-2"
                             />
                         ))}
                     </div>
