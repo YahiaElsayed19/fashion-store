@@ -12,7 +12,7 @@ const userSchema = new Schema({
     image: {
         type: String,
     },
-    whishlist: { type: [{}] },
+    wishlist: { type: [{}] },
     cart: { type: [{}] },
 }
 )
