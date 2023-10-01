@@ -1,3 +1,4 @@
+import User from "@models/user"
 import Cart from "@models/cart"
 import Product from "@models/product"
 import { connectToDB } from "@util/database"
@@ -5,14 +6,8 @@ import { connectToDB } from "@util/database"
 export const GET = async (req, { params }) => {
     try {
         await connectToDB()
-        let cart = await Cart.findOne({ owner: params.userId })
-        if (!cart) {
-            let newCart = await Cart.create({
-                owner: params.userId,
-                cartItems: []
-            })
-            return new Response(JSON.stringify(newCart), { status: 200 })
-        }
+        let user = await User.findOne({ owner: params.userId })
+        let cart = user.cart
         return new Response(JSON.stringify(cart), { status: 200 })
     } catch (error) {
         console.log(error);
@@ -27,26 +22,20 @@ export const POST = async (req, { params }) => {
     try {
         await connectToDB()
         let product = await Product.findOne({ _id: productId })
-        let cart = await Cart.findOne({ owner: params.userId })
-        if (!cart) {
-            await Cart.create({
-                owner: params.userId,
-                cartItems: [{ ...product._doc, count: 1 }]
-            })
-        }
-        if (cart) {
-            const productIndex = cart.cartItems.findIndex((item) => item._id.toString() === product._id.toString());
-            if (productIndex !== -1) {
-                const existedProduct = cart.cartItems[productIndex]
-                cart.cartItems[productIndex] = { ...existedProduct._doc, count: existedProduct._doc.count + 1 }
-                await cart.save()
-            } else {
-                cart.cartItems.push({ ...product._doc, count: 1 })
-                await cart.save()
-            }
+        let user = await User.findOne({ _id: params.userId })
+        let cart = user.cart
+        const productIndex = cart.findIndex((item) => item._id.toString() === product._id.toString());
+        if (productIndex !== -1) {
+            const existedProduct = cart[productIndex]
+            cart[productIndex] = { ...existedProduct, count: existedProduct.count + 1 }
+            await user.save()
+        } else {
+            cart.push({ ...product._doc, count: 1 })
+            await user.save()
         }
         return new Response(JSON.stringify({ msg: "Successfully added to cart!", success: true }), { status: 200 })
     } catch (error) {
+        console.log(error);
         return new Response(JSON.stringify(error), { status: 500 })
     }
 }
@@ -58,17 +47,18 @@ export const PATCH = async (req, { params }) => {
     try {
         await connectToDB()
         let product = await Product.findOne({ _id: productId })
-        let cart = await Cart.findOne({ owner: params.userId })
-        const productIndex = cart.cartItems.findIndex((item) => item._id.toString() === product._id.toString());
+        let user = await User.findOne({ owner: params.userId })
+        let cart = user.cart
+        const productIndex = cart.findIndex((item) => item._id.toString() === product._id.toString());
         if (productIndex !== -1) {
-            const existedProduct = cart.cartItems[productIndex]
+            const existedProduct = cart[productIndex]
             if (existedProduct.count > 1) {
                 existedProduct.count -= 1
-                cart.cartItems[productIndex] = existedProduct
-                cart.save()
+                cart[productIndex] = existedProduct
+                user.save()
             } else {
-                cart.cartItems.splice(productIndex, 1)
-                cart.save()
+                cart.splice(productIndex, 1)
+                user.save()
             }
             return new Response(JSON.stringify({ msg: "Successfully deleted from cart!", success: true }), { status: 200 })
         } else {
@@ -82,7 +72,9 @@ export const PATCH = async (req, { params }) => {
 export const DELETE = async (req, { params }) => {
     try {
         await connectToDB()
-        await Cart.findOneAndRemove({ owner: params.userId })
+        const user = await User.findOne({ _id: params.userId })
+        user.cart = []
+        await user.save()
         return new Response(JSON.stringify({ msg: "Successfully deleted cart!", success: true }), { status: 200 })
     } catch (error) {
         return new Response(JSON.stringify(error), { status: 500 })
