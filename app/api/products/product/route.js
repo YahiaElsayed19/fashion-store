@@ -1,6 +1,5 @@
-import Cart from "@models/cart";
+import User from "@models/user";
 import Product from "@models/product";
-import Wishlist from "@models/wishlist";
 import { connectToDB } from "@util/database";
 export const GET = async (req) => {
     const url = new URL(req.url);
@@ -8,18 +7,19 @@ export const GET = async (req) => {
     let productId = url.searchParams.get("product-id");
     try {
         await connectToDB();
+        const user = await User.findOne({ _id: userId });
         const product = await Product.findOne({ _id: productId });
-        const cart = await Cart.findOne({ owner: userId });
-        const wishlist = await Wishlist.findOne({ owner: userId });
-        if (userId) {
+        if (user) {
+            let cart = user.cart
+            let wishlist = user.wishlist
             const customizedProduct = {
                 ...product.toObject(),
                 inCart:
-                    cart.cartItems.find(
+                    cart.find(
                         (cartItem) => cartItem._id.toString() === product._id.toString()
                     ) !== undefined,
                 inWishlist:
-                    wishlist.wishlistItems.find(
+                    wishlist.find(
                         (wishlistItem) =>
                             wishlistItem._id.toString() === product._id.toString()
                     ) !== undefined,
