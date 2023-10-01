@@ -1,5 +1,4 @@
 import User from "@models/user"
-import Cart from "@models/cart"
 import Product from "@models/product"
 import { connectToDB } from "@util/database"
 
