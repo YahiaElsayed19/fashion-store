@@ -5,7 +5,7 @@ import { connectToDB } from "@util/database"
 export const GET = async (req, { params }) => {
     try {
         await connectToDB()
-        let user = await User.findOne({ owner: params.userId })
+        let user = await User.findOne({ _id: params.userId })
         let cart = user.cart
         return new Response(JSON.stringify(cart), { status: 200 })
     } catch (error) {
@@ -46,7 +46,7 @@ export const PATCH = async (req, { params }) => {
     try {
         await connectToDB()
         let product = await Product.findOne({ _id: productId })
-        let user = await User.findOne({ owner: params.userId })
+        let user = await User.findOne({ _id: params.userId })
         let cart = user.cart
         const productIndex = cart.findIndex((item) => item._id.toString() === product._id.toString());
         if (productIndex !== -1) {
