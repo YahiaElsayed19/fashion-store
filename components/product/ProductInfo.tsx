@@ -14,7 +14,7 @@ const ProductInfo = ({ product }: { product?: productType }) => {
         setSubmitting(true);
         try {
             //@ts-ignore
-            await addToCart(session?.user.id, productId);
+            await addToCart(session?.user.id, product?._id);
             setSuccess(true);
         } catch (error) {
             setSuccess(false);
