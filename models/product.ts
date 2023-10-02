@@ -32,7 +32,15 @@ export const productSchema = new Schema({
     count: {
         type: Number,
         required: [false],
-    }
+    },
+    inCart: {
+        type: Boolean,
+        required: [false],
+    },
+    inWishlist: {
+        type: Boolean,
+        required: [false],
+    },
 }
 )
 const Product = models.Product || model("Product", productSchema)
