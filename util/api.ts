@@ -7,7 +7,7 @@ export const getProducts = (page?: number) => {
     return API.get(`products`, { params: { page: page } });
 };
 
-export const getProduct = (productId?: string, authorization?: string) => {
+export const getProduct = (productId: string, authorization?: string) => {
     return API.get(`products/product?product-id=${productId}`, {
         headers: { Authorization: authorization },
     });
