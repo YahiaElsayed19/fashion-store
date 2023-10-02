@@ -2,10 +2,11 @@ import User from "@models/user"
 import Product from "@models/product"
 import { connectToDB } from "@util/database"
 
-export const GET = async (req, { params }) => {
+export const GET = async (req) => {
+    let userId = req.headers.get('Authorization')
     try {
         await connectToDB()
-        let user = await User.findOne({ _id: params.userId })
+        let user = await User.findOne({ _id: userId })
         let wishlist = user.wishlist
         return new Response(JSON.stringify(wishlist), { status: 200 })
     }
@@ -14,14 +15,15 @@ export const GET = async (req, { params }) => {
     }
 }
 
-export const POST = async (req, { params }) => {
+export const POST = async (req) => {
     const url = new URL(req.url)
+    let userId = req.headers.get('Authorization')
     let productId = url.searchParams.get('product-id')
 
     try {
         await connectToDB()
         let product = await Product.findOne({ _id: productId })
-        let user = await User.findOne({ _id: params.userId })
+        let user = await User.findOne({ _id: userId })
         let wishlist = user.wishlist
         const productIndex = wishlist.findIndex((item) => item._id.toString() === product._id.toString());
         if (productIndex === -1) {
@@ -35,14 +37,15 @@ export const POST = async (req, { params }) => {
     }
 }
 
-export const PATCH = async (req, { params }) => {
+export const PATCH = async (req) => {
     const url = new URL(req.url)
+    let userId = req.headers.get('Authorization')
     let productId = url.searchParams.get('product-id')
 
     try {
         await connectToDB()
         let product = await Product.findOne({ _id: productId })
-        let user = await User.findOne({ _id: params.userId })
+        let user = await User.findOne({ _id: userId })
         let wishlist = user.wishlist
         const productIndex = wishlist.findIndex((item) => item._id.toString() === product._id.toString());
         if (productIndex !== -1) {
@@ -57,10 +60,11 @@ export const PATCH = async (req, { params }) => {
     }
 }
 
-export const DELETE = async (req, { params }) => {
+export const DELETE = async (req) => {
+    let userId = req.headers.get('Authorization')
     try {
         await connectToDB()
-        let user = await User.findOne({ _id: params.userId })
+        let user = await User.findOne({ _id: userId })
         user.wishlist = []
         await user.save()
         return new Response(JSON.stringify({ msg: "Successfully deleted wishlist!", success: true }), { status: 200 })
