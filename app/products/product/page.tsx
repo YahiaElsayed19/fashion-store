@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { getProduct } from "@util/api";
 import { addToCart } from "@util/api";
 import { productType } from "@types";
-import { useSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 import { BsCartCheckFill } from "react-icons/bs";
 import { IoMdCloseCircle } from "react-icons/io";
 import SingleProductPlaceholder from "@components/placeholder/SingleProductPlaceholder";
@@ -35,8 +35,11 @@ const page = () => {
     useEffect(() => {
         (async () => {
             setLoading(true);
-            const { data } = await getProduct(productId);
+            const session = await getSession()
+            //@ts-ignore
+            const { data } = await getProduct(productId, session?.user.id);
             setProduct(data);
+            console.log(data);
             setLoading(false);
         })();
     }, []);
