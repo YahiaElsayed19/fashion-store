@@ -47,3 +47,6 @@
 .tag {
   @apply text-black dark:text-white hover:text-white hover:bg-primary duration-300 py-1 px-4 rounded-full border-2 border-gray-100 dark:border-dark-container ;
 }
+.wishlist-btn{
+  @apply  cursor-pointer hover:text-red-600 duration-300 disabled:cursor-not-allowed
+}
