@@ -3,7 +3,7 @@ import Product from "@models/product";
 import { connectToDB } from "@util/database";
 export const GET = async (req) => {
     const url = new URL(req.url);
-    let userId = url.searchParams.get("user-id");
+    let userId = req.headers.get('Authorization')
     let productId = url.searchParams.get("product-id");
     try {
         await connectToDB();
