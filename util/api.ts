@@ -35,6 +35,27 @@ export const addToCart = (authorization: string, productId: string) => {
         }
     );
 };
+
+export const removeFromCart = (authorization: string, productId: string) => {
+    return API.patch(
+        `cart`,
+        {},
+        {
+            headers: { Authorization: authorization },
+            params: { "product-id": productId },
+        }
+    );
+};
+
+export const removeCart = (authorization: string) => {
+    return API.patch(
+        `cart`,
+        {
+            headers: { Authorization: authorization },
+        }
+    );
+};
+
 export const addToWishlist = (authorization: string, productId: string) => {
     return API.post(
         `wishlist`,
@@ -42,6 +63,26 @@ export const addToWishlist = (authorization: string, productId: string) => {
         {
             headers: { Authorization: authorization },
             params: { "product-id": productId },
+        }
+    );
+};
+
+export const removeFromWishlist = (authorization: string, productId: string) => {
+    return API.patch(
+        `wishlist`,
+        {},
+        {
+            headers: { Authorization: authorization },
+            params: { "product-id": productId },
+        }
+    );
+};
+
+export const removeWishlist = (authorization: string) => {
+    return API.delete(
+        `wishlist`,
+        {
+            headers: { Authorization: authorization },
         }
     );
 };
