@@ -6,8 +6,10 @@ export interface productType {
     gender?: string;
     desc?: string;
     price: number;
-    images: string[]
-    count?: number
+    images: string[];
+    count?: number;
+    inCart?: boolean;
+    inWishlist?: boolean;
 }
 export interface productCardType {
     id: string;
