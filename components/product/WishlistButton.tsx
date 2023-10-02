@@ -8,19 +8,19 @@ import { addToWishlist, removeFromWishlist } from "@util/api";
 const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
     const productId = useSearchParams().get("product-id");
     const { data: session } = useSession();
-    const [submittingWishlist, setSubmittingWishlist] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
     const [isInWishlist, setIsInWishlist] = useState(inWishlist);
     const addToWishlistHandler = async () => {
-        setSubmittingWishlist(true);
+        setSubmitting(true);
         try {
             //@ts-ignore
             await addToWishlist(session?.user.id, productId);
             setIsInWishlist(true);
         } catch (error) { }
-        setSubmittingWishlist(false);
+        setSubmitting(false);
     };
     const removeFromWishlistHandler = async () => {
-        setSubmittingWishlist(true);
+        setSubmitting(true);
         try {
             //@ts-ignore
             await removeFromWishlist(session?.user.id, productId);
@@ -28,7 +28,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
         } catch (error) {
             console.log(error);
         }
-        setSubmittingWishlist(false);
+        setSubmitting(false);
     };
 
     return (
@@ -38,7 +38,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
                     type="button"
                     className="wishlist-btn text-red-600"
                     onClick={removeFromWishlistHandler}
-                    disabled={submittingWishlist}
+                    disabled={submitting}
                 >
                     <AiFillHeart className="w-8 h-8" />{""}
                 </button>
@@ -47,7 +47,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
                     type="button"
                     className="wishlist-btn"
                     onClick={addToWishlistHandler}
-                    disabled={submittingWishlist}
+                    disabled={submitting}
                 >
                     <AiOutlineHeart className="w-8 h-8 " />{""}
                 </button>
