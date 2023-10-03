@@ -21,7 +21,7 @@
 }
 
 .nav-link {
-  @apply flex flex-col gap-1 justify-center items-center dark:text-white hover hover:text-primary
+  @apply flex flex-col gap-1 justify-center items-center text-black dark:text-white hover hover:text-primary
 }
 
 .input {
