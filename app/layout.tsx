@@ -4,6 +4,7 @@ import Provider from '@components/Provider'
 import QueryProvider from '@components/QueryProvider'
 import '@styles/globals.css'
 import { Inter } from 'next/font/google'
+import ThemeToggler from '@components/ThemeToggler'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({
@@ -11,7 +12,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const theme = cookies().get("theme") || { name: "theme", value: "dark" }
+  let theme = cookies().get("theme") || { name: "", value: "" }
 
   return (
     <html lang="en">
@@ -28,6 +29,7 @@ export default function RootLayout({
             </main>
           </Provider>
         </QueryProvider>
+        <ThemeToggler />
       </body>
     </html>
   )
