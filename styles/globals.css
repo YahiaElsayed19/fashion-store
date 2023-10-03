@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+.page {
+  @apply min-h-screen bg-white dark:bg-black flex flex-col items-center py-[50px]
+}
+
 .hover {
   @apply hover:bg-gray-100 p-2 rounded-full dark:hover:bg-dark-container
 }

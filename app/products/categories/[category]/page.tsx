@@ -31,7 +31,7 @@ const page = ({ params }: { params: { category: string } }) => {
         })();
     }, [page]);
     return (
-        <section className="min-h-screen bg-white dark:bg-black flex flex-col items-center py-[50px]">
+        <section className='page'>
             <ProductsList products={products} title={category} loading={loading}/>
             {products.length > 0 && <button
                 className="button"

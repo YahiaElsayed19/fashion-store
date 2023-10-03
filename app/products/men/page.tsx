@@ -25,7 +25,7 @@ const page = () => {
         })();
     }, [page]);
     return (
-        <section className="min-h-screen bg-white dark:bg-black flex flex-col items-center py-[50px]">
+        <section className='page'>
             <ProductsList products={products} title="Men" loading={loading} />
             {products.length > 0 && <button
                 type="button"

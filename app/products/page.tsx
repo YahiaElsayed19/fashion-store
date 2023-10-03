@@ -3,7 +3,7 @@ import React from 'react'
 
 const page = () => {
     return (
-        <section className=' min-h-screen bg-white dark:bg-black'>
+        <section className='page'>
             <AllProducts />
         </section>
     )
