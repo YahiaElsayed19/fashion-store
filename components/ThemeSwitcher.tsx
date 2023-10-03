@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { BsMoonStarsFill, BsSunFill } from "react-icons/bs";
+import { BsMoonStarsFill } from "react-icons/bs";
+import { FaSun } from "react-icons/fa";
 import { RiComputerFill } from "react-icons/ri";
 const ThemeSwitcher = () => {
     const [mounted, setMounted] = useState(false)
@@ -18,16 +19,16 @@ const ThemeSwitcher = () => {
     return (
         <div className="relative">
             <div
-                className="fixed bottom-4 right-4 z-50 p-2 rounded-full cursor-pointer bg-black dark:bg-white text-white dark:text-black"
+                className="fixed bottom-4 right-4 z-50 p-2 rounded-full cursor-pointer bg-dark-container dark:bg-white text-white dark:text-black"
                 onClick={() => {
                     setShowOptions((prev) => !prev);
                 }}
             >
                 {theme == "dark" && <BsMoonStarsFill className=" theme-icon" />}
-                {theme == "light" && <BsSunFill className="theme-icon" />}
+                {theme == "light" && <FaSun className="theme-icon" />}
                 {theme == "system" && <RiComputerFill className=" theme-icon" />}
                 {showOptions && (
-                    <div className="absolute bottom-[64px] right-0 p-3 rounded-lg bg-gray-200 dark:bg-dark-container">
+                    <div className="absolute bottom-[64px] right-0 rounded-lg bg-gray-200 dark:bg-dark-container">
                         <button
                             aria-label="dark button"
                             type="button"
@@ -46,7 +47,7 @@ const ThemeSwitcher = () => {
                                 setTheme("light");
                             }}
                         >
-                            <BsSunFill /> Light
+                            <FaSun /> Light
                         </button>
                         <button
                             aria-label="system button"
