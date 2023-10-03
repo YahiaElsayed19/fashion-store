@@ -35,6 +35,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
         <div className="absolute top-2 left-2">
             {isInWishlist ? (
                 <button
+                    name="wishlist button"
                     type="button"
                     className="wishlist-button text-red-600"
                     onClick={removeFromWishlistHandler}
@@ -44,6 +45,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
                 </button>
             ) : (
                 <button
+                    name="wishlist button"
                     type="button"
                     className="wishlist-button"
                     onClick={addToWishlistHandler}
