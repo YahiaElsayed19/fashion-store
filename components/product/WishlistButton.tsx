@@ -41,7 +41,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
                     onClick={removeFromWishlistHandler}
                     disabled={submitting}
                 >
-                    <AiFillHeart className="w-8 h-8" />{""}
+                    <AiFillHeart className="w-8 h-8" />{" "}
                 </button>
             ) : (
                 <button
@@ -51,7 +51,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
                     onClick={addToWishlistHandler}
                     disabled={submitting}
                 >
-                    <AiOutlineHeart className="w-8 h-8 " />{""}
+                    <AiOutlineHeart className="w-8 h-8 " />{" "}
                 </button>
             )}
         </div>
