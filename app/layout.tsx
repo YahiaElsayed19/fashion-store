@@ -1,10 +1,10 @@
 import { cookies } from 'next/headers'
 import Header from '@components/header/Header'
-import Provider from '@components/Provider'
-import QueryProvider from '@components/QueryProvider'
+import Provider from '@components/providers/Provider'
+import QueryProvider from '@components/providers/QueryProvider'
 import '@styles/globals.css'
 import { Inter } from 'next/font/google'
-import ThemeToggler from '@components/ThemeToggler'
+import ThemeToggler from '@components/theme/ThemeToggler'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({
