@@ -4,8 +4,9 @@ import Link from "next/link";
 import { productType } from "@types";
 import CartButton from "./CartButton";
 import WishlistButton from "./WishlistButton";
+import { useSession } from "next-auth/react";
 const ProductInfo = ({ product }: { product?: productType }) => {
-
+    const { data: session } = useSession()
     return (
         <div className="px-4 mx-auto w-full lg:w-[400px] bg-white dark:bg-black lg:sticky lg:top-[144px] lg:left-0 h-fit relative">
             <div className="text-right text-black dark:text-white py-3 pb-5 border-b border-gray-200 dark:border-dark-container ">
@@ -31,10 +32,10 @@ const ProductInfo = ({ product }: { product?: productType }) => {
                 </Link>
             </div>
             <div className="flex justify-end pt-1 pb-5 gap-2 text-white">
-                {product?.inWishlist !== undefined && (
+                {session?.user && (
                     <WishlistButton inWishlist={product?.inWishlist} />
                 )}
-                <CartButton productId={product?._id} buttonStyles="bg-black text-white dark:bg-white dark:text-black" iconStyles="left-12"/>
+                <CartButton productId={product?._id} buttonStyles="bg-black text-white dark:bg-white dark:text-black" iconStyles="left-12" />
             </div>
         </div>
     );
