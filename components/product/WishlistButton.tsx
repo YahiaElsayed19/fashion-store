@@ -35,6 +35,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
         <div className="absolute top-2 left-2">
             {isInWishlist ? (
                 <button
+                    aria-label="wishlist button"
                     name="wishlist button"
                     type="button"
                     className="wishlist-button text-red-600"
@@ -45,6 +46,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
                 </button>
             ) : (
                 <button
+                    aria-label="wishlist button"
                     name="wishlist button"
                     type="button"
                     className="wishlist-button"
