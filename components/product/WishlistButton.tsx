@@ -49,7 +49,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
                     aria-label="wishlist button"
                     name="wishlist button"
                     type="button"
-                    className="wishlist-button"
+                    className="wishlist-button text-black dark:text-white"
                     onClick={addToWishlistHandler}
                     disabled={submitting}
                 >
