@@ -30,12 +30,12 @@ const ProductInfo = ({ product }: { product?: productType }) => {
                     {product?.gender}
                 </Link>
             </div>
-            {product?.inCart !== undefined && (
-                <div className="flex justify-end pt-1 pb-5 gap-2 text-white">
+            <div className="flex justify-end pt-1 pb-5 gap-2 text-white">
+                {product?.inWishlist !== undefined && (
                     <WishlistButton inWishlist={product?.inWishlist} />
-                    <CartButton />
-                </div>
-            )}
+                )}
+                <CartButton />
+            </div>
         </div>
     );
 };
