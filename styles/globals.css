@@ -55,3 +55,6 @@
 .wishlist-button {
   @apply cursor-pointer hover:text-red-600 duration-300 disabled:cursor-not-allowed
 }
+.theme-button{
+  @apply fixed bottom-5 right-5 z-50 w-10 h-10 p-2 rounded-full
+}
