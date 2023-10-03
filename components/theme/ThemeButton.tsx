@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { setCookie } from './ThemeToggler'
+import { setCookie } from './ThemeCookie'
 import { BsMoonStarsFill, BsSunFill } from 'react-icons/bs'
 const ThemeButton = ({ themeCookie }: { themeCookie: { name: string, value: string } }) => {
     return (
