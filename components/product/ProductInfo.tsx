@@ -34,7 +34,7 @@ const ProductInfo = ({ product }: { product?: productType }) => {
                 {product?.inWishlist !== undefined && (
                     <WishlistButton inWishlist={product?.inWishlist} />
                 )}
-                <CartButton />
+                <CartButton productId={product?._id} buttonStyles="bg-black text-white dark:bg-white dark:text-black" iconStyles="left-12"/>
             </div>
         </div>
     );

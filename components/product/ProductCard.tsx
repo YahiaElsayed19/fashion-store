@@ -1,12 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { productCardType } from "@types";
-import { addToCart } from "@util/api";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { BsCartCheckFill } from 'react-icons/bs'
-import { IoMdCloseCircle } from 'react-icons/io'
+import CartButton from "./CartButton";
 
 const ProductCard: React.FC<productCardType> = ({
     id,
@@ -14,24 +11,6 @@ const ProductCard: React.FC<productCardType> = ({
     imageSrc,
     price,
 }) => {
-    const { data: session } = useSession();
-    const [submitting, setSubmitting] = useState(false);
-    const [success, setSuccess] = useState<boolean | null>();
-    const addToCartHandler = async () => {
-        setSubmitting(true);
-        try {
-            //@ts-ignore
-            await addToCart(session?.user.id, id);
-            setSuccess(true);
-        } catch (error) {
-            setSuccess(false);
-        }
-        setTimeout(() => {
-            setSuccess(null);
-        }, 2000);
-        setSubmitting(false);
-    };
-
     return (
         <div className="text-center relative flex flex-col items-center group-[.list]:w-full sm:group-[.list]:w-auto">
             <Link
@@ -52,15 +31,7 @@ const ProductCard: React.FC<productCardType> = ({
                 </p>
                 <p className="text-primary text-sm">{price} EGP</p>
             </Link>
-            <button
-                disabled={submitting}
-                className="group-[.list]:w-fit sm:group-[.list]:w-full bg-white text-black dark:bg-black dark:text-white cart-button"
-                onClick={addToCartHandler}
-            >
-                + add to cart
-            </button>
-            {success === true && <BsCartCheckFill className="text-green-400 absolute top-3 left-2 w-10 h-10 p-2 rounded-[50%] bg-dark-container" />}
-            {success === false && <IoMdCloseCircle className="text-red-600 absolute top-3 left-2 w-10 h-10 p-2 rounded-[50%] bg-dark-container" />}
+            <CartButton productId={id} buttonStyles="bg-white dark:bg-black text-black dark:text-white" iconStyles="left-3 bg-dark-container p-1 rounded-full"/>
         </div>
     );
 };

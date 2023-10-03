@@ -1,14 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import { useSession } from "next-auth/react";
-import { useSearchParams } from "next/navigation";
 import { BsCartCheckFill } from "react-icons/bs";
 import { IoMdCloseCircle } from "react-icons/io";
 import { addToCart } from "@util/api";
-const CartButton = () => {
+const CartButton = ({ productId, buttonStyles,iconStyles }: { productId?: string, buttonStyles?: string, iconStyles?: string }) => {
     const [success, setSuccess] = useState<boolean | null>();
     const [showMsg, setShowMsg] = useState<boolean | null>(false);
-    const productId = useSearchParams().get("product-id")
     const { data: session } = useSession();
     const [submitting, setSubmitting] = useState(false);
     const addToCartHandler = async () => {
@@ -38,16 +36,15 @@ const CartButton = () => {
             <button
                 type="button"
                 disabled={submitting}
-                className=" bg-black text-white dark:bg-white dark:text-black cart-button"
+                className={` cart-button ${buttonStyles}`}
                 onClick={addToCartHandler}
             >
                 + add to cart
             </button>
-            {success === true && <BsCartCheckFill className="text-green-400 absolute top-2 left-12 w-7 h-7" />}
-            {success === false && <IoMdCloseCircle className="text-red-600 absolute top-2 left-12 w-7 h-7 " />}
-            {showMsg && <p className="text-black dark:text-white bg-white dark:bg-black p-2 absolute bottom-20 left-[50%] translate-x-[-50%] border border-primary">You need to sign in first</p>}
+            {success === true && <BsCartCheckFill className={`text-green-400 absolute top-2 ${iconStyles} w-7 h-7`} />}
+            {success === false && <IoMdCloseCircle className={`text-red-600 absolute top-2 ${iconStyles}  w-7 h-7 `}/>}
+            {showMsg && <p className="text-black dark:text-white bg-white dark:bg-black text-xs font-semibold p-2 absolute bottom-20 left-[50%] translate-x-[-50%] border border-primary">You need to sign in first</p>}
         </>
-
     )
 }
 
