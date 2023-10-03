@@ -13,7 +13,6 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const theme = cookies().get("theme") || { name: "theme", value: "dark" }
-  console.log(theme.value);
 
   return (
     <html lang="en">
