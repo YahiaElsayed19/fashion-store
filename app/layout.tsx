@@ -2,7 +2,6 @@ import { cookies } from 'next/headers'
 import Header from '@components/header/Header'
 import Provider from '@components/Provider'
 import QueryProvider from '@components/QueryProvider'
-import ThemeToggler from '@components/ThemeToggler'
 import '@styles/globals.css'
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
@@ -29,7 +28,6 @@ export default function RootLayout({
             </main>
           </Provider>
         </QueryProvider>
-        <ThemeToggler />
       </body>
     </html>
   )
