@@ -32,7 +32,7 @@
   @apply text-center font-bold text-lg px-4 py-2 mt-4 bg-black dark:bg-white text-white dark:text-black rounded-full hover:text-white hover:bg-primary w-fit duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed;
 }
 
-.bg_image {
+.bg-image {
   background-image: url("/assets/hero.jpg");
   background-size: cover;
   background-position-x: center;
@@ -40,13 +40,14 @@
   background-repeat: no-repeat;
 }
 
-.msg-toast {
-  @apply absolute top-2 left-[50%] translate-x-[-50%] text-white p-2 rounded-full opacity-80
+.tag {
+  @apply text-black dark:text-white hover:text-white hover:bg-primary duration-300 py-1 px-4 rounded-full border-2 border-gray-100 dark:border-dark-container;
 }
 
-.tag {
-  @apply text-black dark:text-white hover:text-white hover:bg-primary duration-300 py-1 px-4 rounded-full border-2 border-gray-100 dark:border-dark-container ;
+.cart-button {
+  @apply w-full font-medium mt-5 py-2 px-3 rounded-full hover:bg-primary hover:text-white duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed
 }
-.wishlist-btn{
-  @apply  cursor-pointer hover:text-red-600 duration-300 disabled:cursor-not-allowed
+
+.wishlist-button {
+  @apply cursor-pointer hover:text-red-600 duration-300 disabled:cursor-not-allowed
 }

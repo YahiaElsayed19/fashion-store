@@ -54,7 +54,7 @@ const ProductCard: React.FC<productCardType> = ({
             </Link>
             <button
                 disabled={submitting}
-                className="group-[.list]:w-fit sm:group-[.list]:w-full w-full bg-white text-black dark:bg-black dark:text-white font-medium mt-5 py-2 px-3 rounded-full hover:bg-primary hover:text-white duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="group-[.list]:w-fit sm:group-[.list]:w-full bg-white text-black dark:bg-black dark:text-white cart-button"
                 onClick={addToCartHandler}
             >
                 + add to cart

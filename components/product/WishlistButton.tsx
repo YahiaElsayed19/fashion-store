@@ -36,7 +36,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
             {isInWishlist ? (
                 <button
                     type="button"
-                    className="wishlist-btn text-red-600"
+                    className="wishlist-button text-red-600"
                     onClick={removeFromWishlistHandler}
                     disabled={submitting}
                 >
@@ -45,7 +45,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
             ) : (
                 <button
                     type="button"
-                    className="wishlist-btn"
+                    className="wishlist-button"
                     onClick={addToWishlistHandler}
                     disabled={submitting}
                 >
