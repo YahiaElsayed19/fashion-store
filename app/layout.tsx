@@ -1,9 +1,10 @@
-"use client"
+import { cookies } from 'next/headers'
 import Header from '@components/header/Header'
 import Provider from '@components/Provider'
+import QueryProvider from '@components/QueryProvider'
+import ThemeToggler from '@components/ThemeToggler'
 import '@styles/globals.css'
 import { Inter } from 'next/font/google'
-import { QueryClient, QueryClientProvider } from 'react-query'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({
@@ -11,22 +12,25 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const client = new QueryClient()
+  const theme = cookies().get("theme") || { name: "theme", value: "dark" }
+  console.log(theme.value);
+
   return (
     <html lang="en">
       <head>
         <title>Fashion Store</title>
         <meta name="description" content="Best store in town." />
       </head>
-      <body className={inter.className}>
-        <Provider>
-          <Header />
-          <QueryClientProvider client={client}>
+      <body className={`${inter.className} ${theme.value}`}>
+        <QueryProvider>
+          <Provider>
+            <Header />
             <main >
               {children}
             </main>
-          </QueryClientProvider>
-        </Provider>
+          </Provider>
+        </QueryProvider>
+        <ThemeToggler />
       </body>
     </html>
   )
