@@ -28,7 +28,7 @@ const page = () => {
   };
   return (
     <section className="page">
-      <ProductsList products={products} title="Wishlist" loading={loading} />
+      <ProductsList products={products} title="Wishlist" loading={loading} placeholderCount={5}/>
       {products.length > 0 && (
         <button
           aria-label="delete wishlist"
