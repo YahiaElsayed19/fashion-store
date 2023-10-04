@@ -5,6 +5,7 @@ import { getWishlist, removeWishlist } from "@util/api";
 import ProductsList from "@components/product/ProductsList";
 import { productType } from "@types";
 import { useRouter } from "next/navigation";
+import { FaTrash } from 'react-icons/fa'
 const page = () => {
   const { data: session } = useSession();
   const router = useRouter();
@@ -33,11 +34,11 @@ const page = () => {
       <button
         aria-label="delete wishlist"
         type="button"
-        className="py-2 px-3 text-white bg-red-600 font-bold rounded-full disabled:bg-gray-500 disabled:cursor-not-allowed"
+        className="flex justify-center gap-2 items-center py-2 px-3 text-white bg-red-600 font-medium text-sm rounded-full disabled:bg-gray-500 disabled:cursor-not-allowed"
         onClick={emptyWishlistHandler}
         disabled={products.length === 0}
       >
-        Empty Wishlist
+        Clear<FaTrash className="text-white w-4 h-3" />
       </button>
     </section>
   );
