@@ -4,11 +4,9 @@ import { getSession, useSession } from "next-auth/react";
 import { getWishlist, removeWishlist } from "@util/api";
 import ProductsList from "@components/product/ProductsList";
 import { productType } from "@types";
-import { useRouter } from "next/navigation";
-import { FaTrash } from 'react-icons/fa'
+import { FaTrash } from "react-icons/fa";
 const page = () => {
   const { data: session } = useSession();
-  const router = useRouter();
   const [products, setProducts] = useState<productType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
@@ -31,15 +29,18 @@ const page = () => {
   return (
     <section className="page">
       <ProductsList products={products} title="Wishlist" loading={loading} />
-      <button
-        aria-label="delete wishlist"
-        type="button"
-        className="flex justify-center gap-2 items-center py-2 px-3 text-white bg-red-600 font-medium text-sm rounded-full disabled:bg-gray-500 disabled:cursor-not-allowed"
-        onClick={emptyWishlistHandler}
-        disabled={products.length === 0}
-      >
-        Clear<FaTrash className="text-white w-4 h-3" />
-      </button>
+      {products.length > 0 && (
+        <button
+          aria-label="delete wishlist"
+          type="button"
+          className="flex justify-center gap-2 items-center py-2 px-3 text-white bg-red-600 font-medium text-sm rounded-full disabled:bg-gray-500 disabled:cursor-not-allowed"
+          onClick={emptyWishlistHandler}
+          disabled={products.length === 0}
+        >
+          Clear
+          <FaTrash className="text-white w-4 h-3" />
+        </button>
+      )}
     </section>
   );
 };
