@@ -1,8 +1,12 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 
 const page = () => {
+    const [products, setProducts] = useState()
     return (
-        <div>page</div>
+        <section className='page'>
+
+        </section>
     )
 }
 

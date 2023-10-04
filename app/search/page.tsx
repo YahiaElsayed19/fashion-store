@@ -19,13 +19,12 @@ const page = () => {
     return (
         <section className='page'>
             <h1 className='text-2xl font-bold uppercase text-center text-black dark:text-white mb-7'>Search results:</h1>
-            {!isLoading && data?.data.length > 0 && <ProductsList products={data?.data} title={search} />}
+            {!isLoading && <ProductsList products={data?.data} title={search} />}
             {isLoading && <Triangle
                 height="80"
                 width="80"
                 color="#2196f3"
             />}
-            {!isLoading && data?.data.length === 0 && <p className='text-black dark:text-white text-center font-bold text-lg'>There is no results found!</p>}
         </section>
     )
 }
