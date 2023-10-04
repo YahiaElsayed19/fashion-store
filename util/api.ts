@@ -56,6 +56,15 @@ export const removeCart = (authorization: string) => {
     );
 };
 
+export const getWishlist = (authorization: string) => {
+    return API.get(
+        `wishlist`,
+        {
+            headers: { Authorization: authorization },
+        }
+    );
+};
+
 export const addToWishlist = (authorization: string, productId: string) => {
     return API.post(
         `wishlist`,
