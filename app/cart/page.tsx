@@ -1,13 +1,19 @@
-"use client"
-import React, { useState, useEffect } from 'react'
-import { useSession, getSession } from 'next-auth/react';
-import { productType } from '@types';
-import { getCart, removeCart } from '@util/api';
-import ClearButton from '@components/ClearButton';
+"use client";
+import React, { useState, useEffect } from "react";
+import { useSession, getSession } from "next-auth/react";
+import { productType } from "@types";
+import { getCart, removeCart } from "@util/api";
+import ClearButton from "@components/ClearButton";
+import { BsFillCartFill } from "react-icons/bs";
+import { Triangle } from "react-loader-spinner";
+import CartCard from "@components/CartCard";
+
 const page = () => {
     const { data: session } = useSession();
     const [products, setProducts] = useState<productType[]>([]);
+    const [totalPrice, setTotalPrice] = useState<number>(0);
     const [loading, setLoading] = useState<boolean>(true);
+
     useEffect(() => {
         (async () => {
             setLoading(true);
@@ -16,6 +22,9 @@ const page = () => {
                 //@ts-ignore
                 const { data } = await getCart(session?.user.id);
                 setProducts(data);
+                let totalPrice = 0
+                data.map((product: productType) => totalPrice += (parseFloat(product.price.toString().replace(",", "")) * (product.count || 1)))
+                setTotalPrice(totalPrice)
             } catch (error) { }
             setLoading(false);
         })();
@@ -25,11 +34,44 @@ const page = () => {
         await removeCart(session?.user.id);
         setProducts([]);
     };
+    const removeProduct = (productId: string) => {
+        setProducts((prev) => prev.filter((product) => product._id !== productId))
+    }
+    const updataTotalPrice = (amount: number) => {
+        setTotalPrice((prev) => prev + amount)
+    }
     return (
-        <section className='page'>
-            <ClearButton clearHandler={clearCartHandler} />
+        <section className="page">
+            <div className="container max-w-5xl flex flex-col items-center px-4 mx-auto">
+                {products.length > 0 && <div className="flex justify-between items-center w-full py-10">
+                    <div className=" font-bold flex gap-2 items-center">
+                        <h1 className="text-black dark:text-white text-2xl">Cart</h1>
+                        <BsFillCartFill className="text-primary w-7 h-6" />
+                    </div>
+                    <ClearButton clearHandler={clearCartHandler} />
+                </div>}
+                {!loading && (
+                    <>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {products.map((product) => (
+                                <CartCard key={product._id} product={product} removeProduct={removeProduct} updateTotalPrice={updataTotalPrice} />
+                            ))}
+                        </div>
+                        {products.length > 0 && (
+                            <div className="flex justify-between items-center w-full py-5">
+                                <p className="text-2xl font-bold mt-5 text-black dark:text-white">Total Price: <span className="text-primary">{totalPrice}</span> EGP</p>
+                                <button aria-label="checkout" type="button" className="button">
+                                    Checkout
+                                </button>
+                            </div>
+                        )}
+                    </>
+                )}
+            </div>
+            {loading && <Triangle height="80" width="80" color="#2196f3" />}
+            {!loading && products.length === 0 && <p className="text-black dark:text-white bg-gray-200 dark:bg-dark-container p-5 rounded-lg">Your cart is empty start add some products!</p>}
         </section>
-    )
-}
+    );
+};
 
-export default page
+export default page;

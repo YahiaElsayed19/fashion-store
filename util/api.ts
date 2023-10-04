@@ -57,7 +57,7 @@ export const removeFromCart = (authorization: string, productId: string) => {
 };
 
 export const removeCart = (authorization: string) => {
-    return API.patch(
+    return API.delete(
         `cart`,
         {
             headers: { Authorization: authorization },
