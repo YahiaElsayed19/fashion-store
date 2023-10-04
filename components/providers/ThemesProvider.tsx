@@ -17,7 +17,7 @@ const ThemesProvider = ({
     // }
 
     return (
-        <ThemeProvider attribute="class">{children}</ThemeProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark">{children}</ThemeProvider>
     )
 }
 
