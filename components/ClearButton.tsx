@@ -6,7 +6,7 @@ const ClearButton = ({ clearHandler }: { clearHandler: any }) => {
         <button
             aria-label="delete all"
             type="button"
-            className="flex justify-center gap-2 items-center py-2 px-3 text-white bg-red-600 font-medium text-sm rounded-full"
+            className="flex justify-center gap-2 items-center py-1 px-3 text-white bg-red-600 font-medium text-sm rounded-full"
             onClick={clearHandler}
         >
             Clear
