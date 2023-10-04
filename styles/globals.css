@@ -49,7 +49,7 @@
 }
 
 .cart-button {
-  @apply w-full font-medium mt-5 py-2 px-3 rounded-full hover:bg-primary hover:text-white dark:hover:text-white dark:hover:bg-primary duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed dark:disabled:bg-gray-400 dark:disabled:cursor-not-allowed
+  @apply w-full font-medium py-2 px-3 rounded-full hover:bg-primary hover:text-white dark:hover:text-white dark:hover:bg-primary duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed dark:disabled:bg-gray-400 dark:disabled:cursor-not-allowed
 }
 
 .wishlist-button {
@@ -60,4 +60,7 @@
 }
 .theme-icon{
   @apply w-8 h-8 text-white dark:text-black
+}
+.cart-action{
+  @apply w-8 h-8 flex justify-center items-center dark:text-white text-black  duration-300
 }

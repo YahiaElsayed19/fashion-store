@@ -31,7 +31,7 @@ const ProductInfo = ({ product }: { product?: productType }) => {
                     {product?.gender}
                 </Link>
             </div>
-            <div className="flex justify-end pt-1 pb-5 gap-2 text-white">
+            <div className="flex justify-end mt-5 pt-1 pb-5 gap-2 text-white">
                 {session?.user && (
                     <WishlistButton inWishlist={product?.inWishlist} />
                 )}
