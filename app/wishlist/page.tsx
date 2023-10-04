@@ -5,7 +5,7 @@ import { getWishlist, removeWishlist } from "@util/api";
 import ProductsList from "@components/product/ProductsList";
 import { productType } from "@types";
 import { Triangle } from 'react-loader-spinner'
-import { FaTrash } from "react-icons/fa";
+import ClearButton from "@components/ClearButton";
 const page = () => {
   const { data: session } = useSession();
   const [products, setProducts] = useState<productType[]>([]);
@@ -22,7 +22,7 @@ const page = () => {
       setLoading(false);
     })();
   }, []);
-  const emptyWishlistHandler = async () => {
+  const clearWishlistHandler = async () => {
     //@ts-ignore
     await removeWishlist(session?.user.id);
     setProducts([]);
@@ -36,16 +36,7 @@ const page = () => {
         color="#2196f3"
       />}
       {products.length > 0 && (
-        <button
-          aria-label="delete wishlist"
-          type="button"
-          className="flex justify-center gap-2 items-center py-2 px-3 text-white bg-red-600 font-medium text-sm rounded-full disabled:bg-gray-500 disabled:cursor-not-allowed"
-          onClick={emptyWishlistHandler}
-          disabled={products.length === 0}
-        >
-          Clear
-          <FaTrash className="text-white w-4 h-3" />
-        </button>
+        <ClearButton clearHandler={clearWishlistHandler}/>
       )}
     </section>
   );
