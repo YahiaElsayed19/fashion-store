@@ -9,7 +9,7 @@ export async function middleware(req: NextRequest) {
     if (isPathProtected) {
         const token = await getToken({ req });
         if (!token) {
-            const url = new URL(`/`, req.url);
+            const url = new URL(`/sign-in`, req.url);
             url.searchParams.set("callbackUrl", pathname);
             return NextResponse.redirect(url)
         }
