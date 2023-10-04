@@ -25,6 +25,15 @@ export const getProductsByGender = (gender: string, page?: number) => {
     return API.get(`products/${gender}`, { params: { page: page } });
 };
 
+export const getCart = (authorization: string) => {
+    return API.get(
+        `cart`,
+        {
+            headers: { Authorization: authorization },
+        }
+    );
+};
+
 export const addToCart = (authorization: string, productId: string) => {
     return API.post(
         `cart`,
