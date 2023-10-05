@@ -82,9 +82,9 @@ const CartCard = ({ product, removeProduct, updateTotalPrice }: { product: produ
                 <Image
                     src={product.images[0]}
                     alt={product.title}
-                    width={180}
-                    height={240}
-                    className=" w-full h-full"
+                    width={200}
+                    height={200}
+                    className="w-full h-full"
                     priority={true}
                 />
             </div>
