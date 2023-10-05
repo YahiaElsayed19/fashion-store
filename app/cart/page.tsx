@@ -18,7 +18,6 @@ const page = () => {
             setLoading(true);
             const session = await getSession();
             try {
-                //@ts-ignore
                 const { data } = await getCart(session?.user.id);
                 setProducts(data);
                 let totalPrice = 0
@@ -29,7 +28,6 @@ const page = () => {
         })();
     }, []);
     const clearCartHandler = async () => {
-        //@ts-ignore
         await removeCart(session?.user.id);
         setProducts([]);
     };

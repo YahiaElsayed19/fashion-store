@@ -6,15 +6,14 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { addToWishlist, removeFromWishlist } from "@util/api";
 
 const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
-    const productId = useSearchParams().get("product-id");
+    const productId = useSearchParams().get("product-id")||"";
     const { data: session } = useSession();
     const [submitting, setSubmitting] = useState(false);
     const [isInWishlist, setIsInWishlist] = useState(inWishlist);
     const addToWishlistHandler = async () => {
         setSubmitting(true);
         try {
-            //@ts-ignore
-            await addToWishlist(session?.user.id, productId);
+            await addToWishlist(productId,session?.user.id);
             setIsInWishlist(true);
         } catch (error) { }
         setSubmitting(false);
@@ -22,8 +21,7 @@ const WishlistButton = ({ inWishlist }: { inWishlist?: boolean }) => {
     const removeFromWishlistHandler = async () => {
         setSubmitting(true);
         try {
-            //@ts-ignore
-            await removeFromWishlist(session?.user.id, productId);
+            await removeFromWishlist(productId,session?.user.id);
             setIsInWishlist(false);
         } catch (error) {
             console.log(error);

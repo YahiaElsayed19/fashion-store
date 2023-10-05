@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { BsCartCheckFill } from "react-icons/bs";
 import { IoMdCloseCircle } from "react-icons/io";
 import { addToCart } from "@util/api";
-const CartButton = ({ productId, buttonStyles, iconStyles }: { productId?: string, buttonStyles?: string, iconStyles?: string }) => {
+const CartButton = ({ productId, buttonStyles, iconStyles }: { productId: string, buttonStyles?: string, iconStyles?: string }) => {
     const [success, setSuccess] = useState<boolean | null>();
     const [showMsg, setShowMsg] = useState<boolean | null>(false);
     const { data: session } = useSession();
@@ -13,8 +13,7 @@ const CartButton = ({ productId, buttonStyles, iconStyles }: { productId?: strin
         if (session?.user) {
             setSubmitting(true);
             try {
-                //@ts-ignore
-                await addToCart(session?.user.id, productId);
+                await addToCart(productId, session?.user.id);
                 setSuccess(true)
             } catch (error) {
                 setSuccess(false)

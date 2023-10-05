@@ -15,7 +15,6 @@ const page = () => {
         (async () => {
             setLoading(true);
             const session = await getSession()
-            //@ts-ignore
             const { data } = await getProduct(productId, session?.user.id);
             setProduct(data);
             setLoading(false);

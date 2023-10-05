@@ -7,7 +7,7 @@ export const getProducts = (page?: number) => {
     return API.get(`products`, { params: { page: page } });
 };
 
-export const getProduct = (productId: string, authorization?: string) => {
+export const getProduct = (productId: string, authorization?: string | null) => {
     return API.get(`products/product?product-id=${productId}`, {
         headers: { Authorization: authorization },
     });
@@ -25,7 +25,7 @@ export const getProductsByGender = (gender: string, page?: number) => {
     return API.get(`products/${gender}`, { params: { page: page } });
 };
 
-export const getCart = (authorization: string) => {
+export const getCart = (authorization?: string | null) => {
     return API.get(
         `cart`,
         {
@@ -34,7 +34,7 @@ export const getCart = (authorization: string) => {
     );
 };
 
-export const addToCart = (authorization: string, productId: string) => {
+export const addToCart = (productId: string, authorization?: string | null) => {
     return API.post(
         `cart`,
         {},
@@ -45,7 +45,7 @@ export const addToCart = (authorization: string, productId: string) => {
     );
 };
 
-export const removeFromCart = (authorization: string, productId: string) => {
+export const removeFromCart = (productId: string, authorization?: string | null) => {
     return API.patch(
         `cart`,
         {},
@@ -56,7 +56,7 @@ export const removeFromCart = (authorization: string, productId: string) => {
     );
 };
 
-export const removeCart = (authorization: string) => {
+export const removeCart = (authorization?: string | null) => {
     return API.delete(
         `cart`,
         {
@@ -65,7 +65,7 @@ export const removeCart = (authorization: string) => {
     );
 };
 
-export const getWishlist = (authorization: string) => {
+export const getWishlist = (authorization?: string | null) => {
     return API.get(
         `wishlist`,
         {
@@ -74,7 +74,7 @@ export const getWishlist = (authorization: string) => {
     );
 };
 
-export const addToWishlist = (authorization: string, productId: string) => {
+export const addToWishlist = (productId: string, authorization?: string | null) => {
     return API.post(
         `wishlist`,
         {},
@@ -85,7 +85,7 @@ export const addToWishlist = (authorization: string, productId: string) => {
     );
 };
 
-export const removeFromWishlist = (authorization: string, productId: string) => {
+export const removeFromWishlist = (productId: string, authorization?: string | null) => {
     return API.patch(
         `wishlist`,
         {},
@@ -96,7 +96,7 @@ export const removeFromWishlist = (authorization: string, productId: string) => 
     );
 };
 
-export const removeWishlist = (authorization: string) => {
+export const removeWishlist = (authorization?: string | null) => {
     return API.delete(
         `wishlist`,
         {

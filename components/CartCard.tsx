@@ -16,8 +16,7 @@ const CartCard = ({ product, removeProduct, updateTotalPrice }: { product: produ
         e.preventDefault();
         setSubmitting(true)
         try {
-            //@ts-ignore
-            await addToCart(session?.user.id, product._id);
+            await addToCart(product._id, session?.user.id);
             setCount((prev) => prev + 1);
             updateTotalPrice(price)
         } catch (error) {
@@ -28,8 +27,7 @@ const CartCard = ({ product, removeProduct, updateTotalPrice }: { product: produ
         e.preventDefault();
         setSubmitting(true)
         try {
-            //@ts-ignore
-            await removeFromCart(session?.user.id, product._id);
+            await removeFromCart(product._id, session?.user.id);
             if (count > 1) {
                 setCount((prev) => prev - 1);
             } else {

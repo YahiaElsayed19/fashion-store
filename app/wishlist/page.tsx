@@ -15,7 +15,6 @@ const page = () => {
       setLoading(true);
       const session = await getSession();
       try {
-        //@ts-ignore
         const { data } = await getWishlist(session?.user.id);
         setProducts(data);
       } catch (error) { }
@@ -23,7 +22,6 @@ const page = () => {
     })();
   }, []);
   const clearWishlistHandler = async () => {
-    //@ts-ignore
     await removeWishlist(session?.user.id);
     setProducts([]);
   };
@@ -36,7 +34,7 @@ const page = () => {
         color="#2196f3"
       />}
       {products.length > 0 && (
-        <ClearButton clearHandler={clearWishlistHandler}/>
+        <ClearButton clearHandler={clearWishlistHandler} />
       )}
     </section>
   );
