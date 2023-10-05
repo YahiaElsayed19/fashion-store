@@ -44,7 +44,7 @@ const CartCard = ({ product, removeProduct, updateTotalPrice }: { product: produ
     return (
         <Link
             href={`/products/product?product-id=${product._id}`}
-            className="flex gap-3 bg-gray-200 dark:bg-dark-container pl-3 max-h-62"
+            className="flex gap-3 bg-gray-200 dark:bg-dark-container pl-3"
         >
             <div className="flex flex-col justify-between items-end flex-1 text-right py-3">
                 <h1 className="text-primary font-bold text-lg py-3">{product.title}</h1>
