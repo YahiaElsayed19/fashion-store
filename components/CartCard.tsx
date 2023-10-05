@@ -5,14 +5,14 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { productType } from "@types";
 import { addToCart, removeFromCart } from "@util/api";
-const CartCard = ({ product, removeProduct, updateTotalPrice }: { product: productType, removeProduct: any, updateTotalPrice: any }) => {
+const CartCard = ({ product, removeProduct, updateTotalPrice }: { product: productType, removeProduct: (productId: string) => void, updateTotalPrice: (amount: number) => void }) => {
     const { data: session } = useSession();
     const [price, setPrice] = useState(
         parseFloat(product.price.toString().replace(",", ""))
     );
     const [count, setCount] = useState(product.count || 1);
     const [submitting, setSubmitting] = useState<boolean>(false);
-    const addToCartHandler = async (e: any) => {
+    const addToCartHandler = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
         setSubmitting(true)
         try {
@@ -24,7 +24,7 @@ const CartCard = ({ product, removeProduct, updateTotalPrice }: { product: produ
         }
         setSubmitting(false)
     };
-    const removeFromCartHandler = async (e: any) => {
+    const removeFromCartHandler = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
         setSubmitting(true)
         try {
