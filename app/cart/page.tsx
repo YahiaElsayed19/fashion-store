@@ -52,7 +52,7 @@ const page = () => {
                         </div>
                         {products.length > 0 && (
                             <div className="flex flex-col items-center sm:flex-row sm:justify-between w-full py-5">
-                                <p className="text-2xl font-bold mt-5 text-black dark:text-white">Total Price: <span className="text-primary">{totalPrice}</span> EGP</p>
+                                <p className="text-2xl font-bold text-black dark:text-white">Total Price: <span className="text-primary">{totalPrice}</span> EGP</p>
                                 <div className="flex gap-5 items-center justify-center">
                                     <ClearButton clearHandler={clearCartHandler} />
                                     <button aria-label="checkout" type="button" className="button">

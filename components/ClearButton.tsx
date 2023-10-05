@@ -8,7 +8,7 @@ const ClearButton = ({ clearHandler }: { clearHandler: any }) => {
             type="button"
             onClick={clearHandler}
         >
-            <FaTrash className=" w-5 h-5 mt-4 hover:text-red-600" />
+            <FaTrash className=" w-5 h-5 hover:text-red-600" />
         </button>
     )
 }
