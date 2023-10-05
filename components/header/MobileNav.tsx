@@ -21,8 +21,7 @@ const MobileNav = () => {
         function clickOutside(event: Event) {
             let icon = document.getElementById('icon');
             let searchbar = document.getElementById('Searchbar');
-            //@ts-ignore
-            if (icon && !icon.contains(event.target) && searchbar && !searchbar.contains(event.target)) {
+            if (icon && !icon.contains(event.target as Element) && searchbar && !searchbar.contains(event.target as Element)) {
                 closeMenuHandler()
             }
         }
