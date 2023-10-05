@@ -12,12 +12,12 @@ export const navLinks: { title: string, url: string }[] = [
         url: "/products/types/hot",
     },
     {
-        title: "Wishlist",
-        url: "/wishlist",
-    },
-    {
         title: "Cart",
         url: "/cart",
+    },
+    {
+        title: "Wishlist",
+        url: "/wishlist",
     },
 ]
 import { getProductsByCategory, getProductsByGender, getProductsByType } from '@util/api'
