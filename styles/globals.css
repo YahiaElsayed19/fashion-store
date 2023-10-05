@@ -33,7 +33,7 @@
 }
 
 .button {
-  @apply text-center font-bold text-lg px-4 py-2 mt-4 bg-black dark:bg-white text-white dark:text-black rounded-full hover:text-white hover:bg-primary dark:hover:text-white dark:hover:bg-primary w-fit duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed;
+  @apply text-center font-bold text-lg px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full hover:text-white hover:bg-primary dark:hover:text-white dark:hover:bg-primary w-fit duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed;
 }
 
 .bg-image {

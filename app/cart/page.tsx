@@ -63,9 +63,9 @@ const page = () => {
                         )}
                     </>
                 )}
+                {!loading && products.length === 0 && <p className="text-black dark:text-white bg-gray-200 dark:bg-dark-container text-center p-5 rounded-lg">Your cart is empty!<br/> Start add some products</p>}
             </div>
             {loading && <Triangle height="80" width="80" color="#2196f3" />}
-            {!loading && products.length === 0 && <p className="text-black dark:text-white bg-gray-200 dark:bg-dark-container p-5 rounded-lg">Your cart is empty start add some products!</p>}
         </section>
     );
 };
