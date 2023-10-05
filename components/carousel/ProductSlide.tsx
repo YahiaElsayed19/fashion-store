@@ -1,4 +1,3 @@
-//@ts-ignore
 import { SplideSlide } from '@splidejs/react-splide'
 import ProductCard from '@components/product/ProductCard';
 import { productCardType } from "@types";

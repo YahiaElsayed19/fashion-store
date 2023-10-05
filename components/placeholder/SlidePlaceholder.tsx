@@ -1,5 +1,4 @@
 import React from 'react'
-//@ts-ignore
 import { SplideSlide } from '@splidejs/react-splide'
 const SlidePlaceholder = ({ count }: { count: number }) => {
     const placeholder = []

@@ -1,13 +1,12 @@
 "use client"
 import React from 'react'
-import '@splidejs/react-splide/css';
 import { useQuery } from 'react-query'
 import ProductSlide from './ProductSlide';
 import Link from 'next/link';
-//@ts-ignore
-import { Splide } from '@splidejs/react-splide'
 import { productType } from '@types';
 import { AxiosResponse } from 'axios'
+import { Splide } from '@splidejs/react-splide'
+import '@splidejs/react-splide/css';
 import SlidePlaceholder from '@components/placeholder/SlidePlaceholder';
 
 const ProductsCarousel = ({ queryFunction, title, url }: { queryFunction:  (title: string) => Promise<AxiosResponse<any, any>>, title: string, url: string }) => {
