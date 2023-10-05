@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaTrash } from "react-icons/fa";
 
-const ClearButton = ({ clearHandler }: { clearHandler: any }) => {
+const ClearButton = ({ clearHandler }: { clearHandler: () => Promise<void> }) => {
     return (
         <button
             aria-label="delete all"
