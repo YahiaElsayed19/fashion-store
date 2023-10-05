@@ -5,7 +5,6 @@ export async function middleware(req: NextRequest) {
     const protectedPaths = ["/wishlist", "/cart"];
     const isPathProtected = protectedPaths?.some((path) => pathname == path);
     const res = NextResponse.next();
-    // res.cookies.set("theme", "dark")
     if (isPathProtected) {
         const token = await getToken({ req });
         if (!token) {
