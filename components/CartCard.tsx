@@ -44,7 +44,7 @@ const CartCard = ({ product, removeProduct, updateTotalPrice }: { product: produ
     return (
         <Link
             href={`/products/product?product-id=${product._id}`}
-            className="flex gap-3 bg-gray-200 dark:bg-dark-container pl-3 lg:min-w-[492px]"
+            className="flex gap-3 bg-gray-200 dark:bg-dark-container pl-3"
         >
             <div className="flex flex-col justify-between items-end flex-1 text-right py-3">
                 <h1 className="text-primary font-bold text-lg py-3">{product.title}</h1>
@@ -82,8 +82,8 @@ const CartCard = ({ product, removeProduct, updateTotalPrice }: { product: produ
                 <Image
                     src={product.images[0]}
                     alt={product.title}
-                    width={234}
-                    height={351}
+                    width={200}
+                    height={400}
                     className="w-full h-full"
                     priority={true}
                 />
