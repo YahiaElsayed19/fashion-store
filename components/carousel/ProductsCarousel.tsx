@@ -7,9 +7,10 @@ import Link from 'next/link';
 //@ts-ignore
 import { Splide } from '@splidejs/react-splide'
 import { productType } from '@types';
+import { AxiosResponse } from 'axios'
 import SlidePlaceholder from '@components/placeholder/SlidePlaceholder';
 
-const ProductsCarousel = ({ queryFunction, title, url }: { queryFunction: any, title: string, url: string }) => {
+const ProductsCarousel = ({ queryFunction, title, url }: { queryFunction:  (title: string) => Promise<AxiosResponse<any, any>>, title: string, url: string }) => {
     const { data, isLoading } = useQuery(title, () => queryFunction(title))
     return (
         <section className='py-[50px] bg-white dark:bg-black'>
