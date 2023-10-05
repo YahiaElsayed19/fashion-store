@@ -6,11 +6,9 @@ const ClearButton = ({ clearHandler }: { clearHandler: any }) => {
         <button
             aria-label="delete all"
             type="button"
-            className="flex justify-center gap-2 items-center py-2 px-3 text-white bg-red-600 font-medium text-sm rounded-full"
             onClick={clearHandler}
         >
-            Clear
-            <FaTrash className="text-white w-4 h-3" />
+            <FaTrash className=" w-5 h-5 mt-4 hover:text-red-600" />
         </button>
     )
 }

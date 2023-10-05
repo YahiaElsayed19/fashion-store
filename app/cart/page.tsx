@@ -43,13 +43,6 @@ const page = () => {
     return (
         <section className="page">
             <div className="container max-w-5xl flex flex-col items-center px-4 mx-auto">
-                {products.length > 0 && <div className="flex justify-between items-center w-full py-10">
-                    <div className=" font-bold flex gap-2 items-center">
-                        <h1 className="text-black dark:text-white text-2xl">Cart</h1>
-                        <BsFillCartFill className="text-primary w-7 h-6" />
-                    </div>
-                    <ClearButton clearHandler={clearCartHandler} />
-                </div>}
                 {!loading && (
                     <>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -58,11 +51,14 @@ const page = () => {
                             ))}
                         </div>
                         {products.length > 0 && (
-                            <div className="flex justify-between items-center w-full py-5">
+                            <div className="flex flex-col items-center sm:flex-row sm:justify-between w-full py-5">
                                 <p className="text-2xl font-bold mt-5 text-black dark:text-white">Total Price: <span className="text-primary">{totalPrice}</span> EGP</p>
-                                <button aria-label="checkout" type="button" className="button">
-                                    Checkout
-                                </button>
+                                <div className="flex gap-5 items-center justify-center">
+                                    <ClearButton clearHandler={clearCartHandler} />
+                                    <button aria-label="checkout" type="button" className="button">
+                                        Checkout
+                                    </button>
+                                </div>
                             </div>
                         )}
                     </>
