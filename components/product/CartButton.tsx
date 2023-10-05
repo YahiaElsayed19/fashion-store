@@ -11,17 +11,17 @@ const CartButton = ({ productId, buttonStyles, iconStyles }: { productId: string
     const [submitting, setSubmitting] = useState(false);
     const addToCartHandler = async () => {
         if (session?.user) {
-            setSubmitting(true);
-            try {
-                await addToCart(productId, session?.user.id);
-                setSuccess(true)
-            } catch (error) {
-                setSuccess(false)
-            }
-            setSubmitting(false);
-            setTimeout(() => {
-                setSuccess(null)
-            }, 3000)
+                setSubmitting(true);
+                try {
+                    await addToCart(productId, session?.user.id);
+                    setSuccess(true)
+                } catch (error) {
+                    setSuccess(false)
+                }
+                setSubmitting(false);
+                setTimeout(() => {
+                    setSuccess(null)
+                }, 3000)
         } else {
             setShowMsg(true)
             setTimeout(() => {

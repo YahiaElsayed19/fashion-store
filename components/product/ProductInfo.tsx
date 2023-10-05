@@ -5,7 +5,7 @@ import { productType } from "@types";
 import CartButton from "./CartButton";
 import WishlistButton from "./WishlistButton";
 import { useSession } from "next-auth/react";
-const ProductInfo = ({ product }: { product?: productType }) => {
+const ProductInfo = ({ product }: { product: productType }) => {
     const { data: session } = useSession()
     return (
         <div className="px-4 mx-auto w-full lg:w-[400px] bg-white dark:bg-black lg:sticky lg:top-[144px] lg:left-0 h-fit relative">
@@ -35,7 +35,7 @@ const ProductInfo = ({ product }: { product?: productType }) => {
                 {session?.user && (
                     <WishlistButton inWishlist={product?.inWishlist} />
                 )}
-                <CartButton productId={product?._id} buttonStyles="bg-black text-white dark:bg-white dark:text-black" iconStyles="left-12" />
+                <CartButton productId={product._id} buttonStyles="bg-black text-white dark:bg-white dark:text-black" iconStyles="left-12" />
             </div>
         </div>
     );

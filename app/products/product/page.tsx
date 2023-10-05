@@ -9,7 +9,12 @@ import ProductInfo from "@components/product/ProductInfo";
 import ProductImages from "@components/product/ProductImages";
 const page = () => {
     const [loading, setLoading] = useState(true);
-    const [product, setProduct] = useState<productType>();
+    const [product, setProduct] = useState<productType>({
+        _id: "",
+        title: "",
+        price: 0,
+        images: [""],
+    });
     const productId = useSearchParams().get("product-id") || "";
     useEffect(() => {
         (async () => {
