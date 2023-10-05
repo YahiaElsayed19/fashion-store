@@ -33,7 +33,7 @@
 }
 
 .button {
-  @apply text-center font-bold text-lg px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full hover:text-white hover:bg-primary dark:hover:text-white dark:hover:bg-primary w-fit duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed;
+  @apply text-center font-bold text-lg px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full hover:text-white hover:bg-primary dark:hover:text-white dark:hover:bg-primary w-fit duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed dark:disabled:bg-gray-400 dark:disabled:cursor-not-allowed dark:disabled:text-white;
 }
 
 .bg-image {
@@ -55,12 +55,15 @@
 .wishlist-button {
   @apply cursor-pointer hover:text-red-600 duration-300 disabled:cursor-not-allowed
 }
-.theme-button{
+
+.theme-button {
   @apply w-full flex gap-2 py-2 px-3 justify-start items-center
 }
-.theme-icon{
+
+.theme-icon {
   @apply w-8 h-8 text-white dark:text-black
 }
-.cart-action{
-  @apply w-8 h-8 flex justify-center items-center dark:text-white text-black  duration-300
+
+.cart-action {
+  @apply w-8 h-8 flex justify-center items-center dark:text-white text-black duration-300
 }
