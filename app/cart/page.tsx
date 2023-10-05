@@ -4,7 +4,6 @@ import { useSession, getSession } from "next-auth/react";
 import { productType } from "@types";
 import { getCart, removeCart } from "@util/api";
 import ClearButton from "@components/ClearButton";
-import { BsFillCartFill } from "react-icons/bs";
 import { Triangle } from "react-loader-spinner";
 import CartCard from "@components/CartCard";
 

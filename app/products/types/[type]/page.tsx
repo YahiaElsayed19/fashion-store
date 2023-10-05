@@ -3,7 +3,11 @@ import React, { useState, useEffect } from "react";
 import ProductsList from "@components/product/ProductsList";
 import { productType } from "@types";
 import { getProductsByType } from "@util/api";
-const lastPage: any = {
+const lastPage: {
+    new: number;
+    trending: number;
+    hot: number;
+} = {
     new: 9,
     trending: 8,
     hot: 6,
@@ -23,7 +27,7 @@ const page = ({ params }: { params: { type: string } }) => {
             if (page === 1) {
                 setProducts(data);
             }
-            if (page > 1 && page <= lastPage[type]) {
+            if (page > 1 && page <= lastPage[type as keyof typeof lastPage]) {
                 setProducts((prev) => [...prev, ...data]);
             }
             setLoading(false);
@@ -33,10 +37,11 @@ const page = ({ params }: { params: { type: string } }) => {
         <section className='page'>
             <ProductsList products={products} title={type} loading={loading} />
             {products.length > 0 && <button
+                aria-label="show more"
                 type="button"
                 className="button"
                 onClick={loadMore}
-                disabled={page >= lastPage[type]}
+                disabled={page >= lastPage[type as keyof typeof lastPage]}
             >
                 Show more
             </button>}

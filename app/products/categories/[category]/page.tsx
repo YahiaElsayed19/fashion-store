@@ -3,7 +3,12 @@ import React, { useState, useEffect } from "react";
 import ProductsList from "@components/product/ProductsList";
 import { productType } from "@types";
 import { getProductsByCategory } from "@util/api";
-const lastPage: any = {
+const lastPage: {
+    top: number,
+    trousers: number,
+    dress: number,
+    skirt: number,
+} = {
     top: 9,
     trousers: 8,
     dress: 5,
@@ -24,7 +29,7 @@ const page = ({ params }: { params: { category: string } }) => {
             if (page === 1) {
                 setProducts(data);
             }
-            if (page > 1 && page <= lastPage[category]) {
+            if (page > 1 && page <= lastPage[category as keyof typeof lastPage]) {
                 setProducts((prev) => [...prev, ...data]);
             }
             setLoading(false);
@@ -32,11 +37,13 @@ const page = ({ params }: { params: { category: string } }) => {
     }, [page]);
     return (
         <section className='page'>
-            <ProductsList products={products} title={category} loading={loading}/>
+            <ProductsList products={products} title={category} loading={loading} />
             {products.length > 0 && <button
+                aria-label="show more"
+                type="button"
                 className="button"
                 onClick={loadMore}
-                disabled={page >= lastPage[category]}
+                disabled={page >= lastPage[category as keyof typeof lastPage]}
             >
                 Show more
             </button>}
